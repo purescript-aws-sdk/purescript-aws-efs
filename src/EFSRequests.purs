@@ -25,25 +25,25 @@ createMountTarget (EFS.Service serviceImpl) = AWS.request serviceImpl method  wh
 
 
 -- | <p>Creates or overwrites tags associated with a file system. Each tag is a key-value pair. If a tag key specified in the request already exists on the file system, this operation overwrites its value with the value provided in the request. If you add the <code>Name</code> tag to your file system, Amazon EFS returns it in the response to the <a>DescribeFileSystems</a> operation. </p> <p>This operation requires permission for the <code>elasticfilesystem:CreateTags</code> action.</p>
-createTags :: forall eff. EFS.Service -> EFSTypes.CreateTagsRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+createTags :: forall eff. EFS.Service -> EFSTypes.CreateTagsRequest -> Aff (exception :: EXCEPTION | eff) Unit
 createTags (EFS.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "createTags"
 
 
 -- | <p>Deletes a file system, permanently severing access to its contents. Upon return, the file system no longer exists and you can't access any contents of the deleted file system.</p> <p> You can't delete a file system that is in use. That is, if the file system has any mount targets, you must first delete them. For more information, see <a>DescribeMountTargets</a> and <a>DeleteMountTarget</a>. </p> <note> <p>The <code>DeleteFileSystem</code> call returns while the file system state is still <code>deleting</code>. You can check the file system deletion status by calling the <a>DescribeFileSystems</a> operation, which returns a list of file systems in your account. If you pass file system ID or creation token for the deleted file system, the <a>DescribeFileSystems</a> returns a <code>404 FileSystemNotFound</code> error.</p> </note> <p>This operation requires permissions for the <code>elasticfilesystem:DeleteFileSystem</code> action.</p>
-deleteFileSystem :: forall eff. EFS.Service -> EFSTypes.DeleteFileSystemRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+deleteFileSystem :: forall eff. EFS.Service -> EFSTypes.DeleteFileSystemRequest -> Aff (exception :: EXCEPTION | eff) Unit
 deleteFileSystem (EFS.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "deleteFileSystem"
 
 
 -- | <p>Deletes the specified mount target.</p> <p>This operation forcibly breaks any mounts of the file system via the mount target that is being deleted, which might disrupt instances or applications using those mounts. To avoid applications getting cut off abruptly, you might consider unmounting any mounts of the mount target, if feasible. The operation also deletes the associated network interface. Uncommitted writes may be lost, but breaking a mount target using this operation does not corrupt the file system itself. The file system you created remains. You can mount an EC2 instance in your VPC via another mount target.</p> <p>This operation requires permissions for the following action on the file system:</p> <ul> <li> <p> <code>elasticfilesystem:DeleteMountTarget</code> </p> </li> </ul> <note> <p>The <code>DeleteMountTarget</code> call returns while the mount target state is still <code>deleting</code>. You can check the mount target deletion by calling the <a>DescribeMountTargets</a> operation, which returns a list of mount target descriptions for the given file system. </p> </note> <p>The operation also requires permissions for the following Amazon EC2 action on the mount target's network interface:</p> <ul> <li> <p> <code>ec2:DeleteNetworkInterface</code> </p> </li> </ul>
-deleteMountTarget :: forall eff. EFS.Service -> EFSTypes.DeleteMountTargetRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+deleteMountTarget :: forall eff. EFS.Service -> EFSTypes.DeleteMountTargetRequest -> Aff (exception :: EXCEPTION | eff) Unit
 deleteMountTarget (EFS.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "deleteMountTarget"
 
 
 -- | <p>Deletes the specified tags from a file system. If the <code>DeleteTags</code> request includes a tag key that does not exist, Amazon EFS ignores it and doesn't cause an error. For more information about tags and related restrictions, see <a href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Tag Restrictions</a> in the <i>AWS Billing and Cost Management User Guide</i>.</p> <p>This operation requires permissions for the <code>elasticfilesystem:DeleteTags</code> action.</p>
-deleteTags :: forall eff. EFS.Service -> EFSTypes.DeleteTagsRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+deleteTags :: forall eff. EFS.Service -> EFSTypes.DeleteTagsRequest -> Aff (exception :: EXCEPTION | eff) Unit
 deleteTags (EFS.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "deleteTags"
 
@@ -73,6 +73,6 @@ describeTags (EFS.Service serviceImpl) = AWS.request serviceImpl method  where
 
 
 -- | <p>Modifies the set of security groups in effect for a mount target.</p> <p>When you create a mount target, Amazon EFS also creates a new network interface. For more information, see <a>CreateMountTarget</a>. This operation replaces the security groups in effect for the network interface associated with a mount target, with the <code>SecurityGroups</code> provided in the request. This operation requires that the network interface of the mount target has been created and the lifecycle state of the mount target is not <code>deleted</code>. </p> <p>The operation requires permissions for the following actions:</p> <ul> <li> <p> <code>elasticfilesystem:ModifyMountTargetSecurityGroups</code> action on the mount target's file system. </p> </li> <li> <p> <code>ec2:ModifyNetworkInterfaceAttribute</code> action on the mount target's network interface. </p> </li> </ul>
-modifyMountTargetSecurityGroups :: forall eff. EFS.Service -> EFSTypes.ModifyMountTargetSecurityGroupsRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+modifyMountTargetSecurityGroups :: forall eff. EFS.Service -> EFSTypes.ModifyMountTargetSecurityGroupsRequest -> Aff (exception :: EXCEPTION | eff) Unit
 modifyMountTargetSecurityGroups (EFS.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "modifyMountTargetSecurityGroups"

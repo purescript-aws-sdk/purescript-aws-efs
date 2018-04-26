@@ -5,7 +5,6 @@ import Prelude
 import Data.Foreign.Class (class Decode, class Encode)
 import Data.Foreign.Generic (defaultOptions, genericDecode, genericEncode)
 import Data.Foreign.Generic.Types (Options)
-import Data.Foreign.NullOrUndefined (NullOrUndefined(..))
 import Data.Generic.Rep (class Generic)
 import Data.Generic.Rep.Show (genericShow)
 import Data.Maybe (Maybe(..))
@@ -30,7 +29,7 @@ instance encodeAwsAccountId :: Encode AwsAccountId where encode = genericEncode 
 -- | <p>Returned if the request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
 newtype BadRequest = BadRequest 
   { "ErrorCode" :: (ErrorCode)
-  , "Message" :: NullOrUndefined (ErrorMessage)
+  , "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeBadRequest :: Newtype BadRequest _
 derive instance repGenericBadRequest :: Generic BadRequest _
@@ -40,20 +39,20 @@ instance encodeBadRequest :: Encode BadRequest where encode = genericEncode opti
 
 -- | Constructs BadRequest from required parameters
 newBadRequest :: ErrorCode -> BadRequest
-newBadRequest _ErrorCode = BadRequest { "ErrorCode": _ErrorCode, "Message": (NullOrUndefined Nothing) }
+newBadRequest _ErrorCode = BadRequest { "ErrorCode": _ErrorCode, "Message": Nothing }
 
 -- | Constructs BadRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newBadRequest' :: ErrorCode -> ( { "ErrorCode" :: (ErrorCode) , "Message" :: NullOrUndefined (ErrorMessage) } -> {"ErrorCode" :: (ErrorCode) , "Message" :: NullOrUndefined (ErrorMessage) } ) -> BadRequest
-newBadRequest' _ErrorCode customize = (BadRequest <<< customize) { "ErrorCode": _ErrorCode, "Message": (NullOrUndefined Nothing) }
+newBadRequest' :: ErrorCode -> ( { "ErrorCode" :: (ErrorCode) , "Message" :: Maybe (ErrorMessage) } -> {"ErrorCode" :: (ErrorCode) , "Message" :: Maybe (ErrorMessage) } ) -> BadRequest
+newBadRequest' _ErrorCode customize = (BadRequest <<< customize) { "ErrorCode": _ErrorCode, "Message": Nothing }
 
 
 
 newtype CreateFileSystemRequest = CreateFileSystemRequest 
   { "CreationToken" :: (CreationToken)
-  , "PerformanceMode" :: NullOrUndefined (PerformanceMode)
-  , "Encrypted" :: NullOrUndefined (Encrypted)
-  , "KmsKeyId" :: NullOrUndefined (KmsKeyId)
+  , "PerformanceMode" :: Maybe (PerformanceMode)
+  , "Encrypted" :: Maybe (Encrypted)
+  , "KmsKeyId" :: Maybe (KmsKeyId)
   }
 derive instance newtypeCreateFileSystemRequest :: Newtype CreateFileSystemRequest _
 derive instance repGenericCreateFileSystemRequest :: Generic CreateFileSystemRequest _
@@ -63,12 +62,12 @@ instance encodeCreateFileSystemRequest :: Encode CreateFileSystemRequest where e
 
 -- | Constructs CreateFileSystemRequest from required parameters
 newCreateFileSystemRequest :: CreationToken -> CreateFileSystemRequest
-newCreateFileSystemRequest _CreationToken = CreateFileSystemRequest { "CreationToken": _CreationToken, "Encrypted": (NullOrUndefined Nothing), "KmsKeyId": (NullOrUndefined Nothing), "PerformanceMode": (NullOrUndefined Nothing) }
+newCreateFileSystemRequest _CreationToken = CreateFileSystemRequest { "CreationToken": _CreationToken, "Encrypted": Nothing, "KmsKeyId": Nothing, "PerformanceMode": Nothing }
 
 -- | Constructs CreateFileSystemRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateFileSystemRequest' :: CreationToken -> ( { "CreationToken" :: (CreationToken) , "PerformanceMode" :: NullOrUndefined (PerformanceMode) , "Encrypted" :: NullOrUndefined (Encrypted) , "KmsKeyId" :: NullOrUndefined (KmsKeyId) } -> {"CreationToken" :: (CreationToken) , "PerformanceMode" :: NullOrUndefined (PerformanceMode) , "Encrypted" :: NullOrUndefined (Encrypted) , "KmsKeyId" :: NullOrUndefined (KmsKeyId) } ) -> CreateFileSystemRequest
-newCreateFileSystemRequest' _CreationToken customize = (CreateFileSystemRequest <<< customize) { "CreationToken": _CreationToken, "Encrypted": (NullOrUndefined Nothing), "KmsKeyId": (NullOrUndefined Nothing), "PerformanceMode": (NullOrUndefined Nothing) }
+newCreateFileSystemRequest' :: CreationToken -> ( { "CreationToken" :: (CreationToken) , "PerformanceMode" :: Maybe (PerformanceMode) , "Encrypted" :: Maybe (Encrypted) , "KmsKeyId" :: Maybe (KmsKeyId) } -> {"CreationToken" :: (CreationToken) , "PerformanceMode" :: Maybe (PerformanceMode) , "Encrypted" :: Maybe (Encrypted) , "KmsKeyId" :: Maybe (KmsKeyId) } ) -> CreateFileSystemRequest
+newCreateFileSystemRequest' _CreationToken customize = (CreateFileSystemRequest <<< customize) { "CreationToken": _CreationToken, "Encrypted": Nothing, "KmsKeyId": Nothing, "PerformanceMode": Nothing }
 
 
 
@@ -76,8 +75,8 @@ newCreateFileSystemRequest' _CreationToken customize = (CreateFileSystemRequest 
 newtype CreateMountTargetRequest = CreateMountTargetRequest 
   { "FileSystemId" :: (FileSystemId)
   , "SubnetId" :: (SubnetId)
-  , "IpAddress" :: NullOrUndefined (IpAddress)
-  , "SecurityGroups" :: NullOrUndefined (SecurityGroups)
+  , "IpAddress" :: Maybe (IpAddress)
+  , "SecurityGroups" :: Maybe (SecurityGroups)
   }
 derive instance newtypeCreateMountTargetRequest :: Newtype CreateMountTargetRequest _
 derive instance repGenericCreateMountTargetRequest :: Generic CreateMountTargetRequest _
@@ -87,12 +86,12 @@ instance encodeCreateMountTargetRequest :: Encode CreateMountTargetRequest where
 
 -- | Constructs CreateMountTargetRequest from required parameters
 newCreateMountTargetRequest :: FileSystemId -> SubnetId -> CreateMountTargetRequest
-newCreateMountTargetRequest _FileSystemId _SubnetId = CreateMountTargetRequest { "FileSystemId": _FileSystemId, "SubnetId": _SubnetId, "IpAddress": (NullOrUndefined Nothing), "SecurityGroups": (NullOrUndefined Nothing) }
+newCreateMountTargetRequest _FileSystemId _SubnetId = CreateMountTargetRequest { "FileSystemId": _FileSystemId, "SubnetId": _SubnetId, "IpAddress": Nothing, "SecurityGroups": Nothing }
 
 -- | Constructs CreateMountTargetRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateMountTargetRequest' :: FileSystemId -> SubnetId -> ( { "FileSystemId" :: (FileSystemId) , "SubnetId" :: (SubnetId) , "IpAddress" :: NullOrUndefined (IpAddress) , "SecurityGroups" :: NullOrUndefined (SecurityGroups) } -> {"FileSystemId" :: (FileSystemId) , "SubnetId" :: (SubnetId) , "IpAddress" :: NullOrUndefined (IpAddress) , "SecurityGroups" :: NullOrUndefined (SecurityGroups) } ) -> CreateMountTargetRequest
-newCreateMountTargetRequest' _FileSystemId _SubnetId customize = (CreateMountTargetRequest <<< customize) { "FileSystemId": _FileSystemId, "SubnetId": _SubnetId, "IpAddress": (NullOrUndefined Nothing), "SecurityGroups": (NullOrUndefined Nothing) }
+newCreateMountTargetRequest' :: FileSystemId -> SubnetId -> ( { "FileSystemId" :: (FileSystemId) , "SubnetId" :: (SubnetId) , "IpAddress" :: Maybe (IpAddress) , "SecurityGroups" :: Maybe (SecurityGroups) } -> {"FileSystemId" :: (FileSystemId) , "SubnetId" :: (SubnetId) , "IpAddress" :: Maybe (IpAddress) , "SecurityGroups" :: Maybe (SecurityGroups) } ) -> CreateMountTargetRequest
+newCreateMountTargetRequest' _FileSystemId _SubnetId customize = (CreateMountTargetRequest <<< customize) { "FileSystemId": _FileSystemId, "SubnetId": _SubnetId, "IpAddress": Nothing, "SecurityGroups": Nothing }
 
 
 
@@ -194,7 +193,7 @@ newDeleteTagsRequest' _FileSystemId _TagKeys customize = (DeleteTagsRequest <<< 
 -- | <p>The service timed out trying to fulfill the request, and the client should try the call again.</p>
 newtype DependencyTimeout = DependencyTimeout 
   { "ErrorCode" :: (ErrorCode)
-  , "Message" :: NullOrUndefined (ErrorMessage)
+  , "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeDependencyTimeout :: Newtype DependencyTimeout _
 derive instance repGenericDependencyTimeout :: Generic DependencyTimeout _
@@ -204,21 +203,21 @@ instance encodeDependencyTimeout :: Encode DependencyTimeout where encode = gene
 
 -- | Constructs DependencyTimeout from required parameters
 newDependencyTimeout :: ErrorCode -> DependencyTimeout
-newDependencyTimeout _ErrorCode = DependencyTimeout { "ErrorCode": _ErrorCode, "Message": (NullOrUndefined Nothing) }
+newDependencyTimeout _ErrorCode = DependencyTimeout { "ErrorCode": _ErrorCode, "Message": Nothing }
 
 -- | Constructs DependencyTimeout's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDependencyTimeout' :: ErrorCode -> ( { "ErrorCode" :: (ErrorCode) , "Message" :: NullOrUndefined (ErrorMessage) } -> {"ErrorCode" :: (ErrorCode) , "Message" :: NullOrUndefined (ErrorMessage) } ) -> DependencyTimeout
-newDependencyTimeout' _ErrorCode customize = (DependencyTimeout <<< customize) { "ErrorCode": _ErrorCode, "Message": (NullOrUndefined Nothing) }
+newDependencyTimeout' :: ErrorCode -> ( { "ErrorCode" :: (ErrorCode) , "Message" :: Maybe (ErrorMessage) } -> {"ErrorCode" :: (ErrorCode) , "Message" :: Maybe (ErrorMessage) } ) -> DependencyTimeout
+newDependencyTimeout' _ErrorCode customize = (DependencyTimeout <<< customize) { "ErrorCode": _ErrorCode, "Message": Nothing }
 
 
 
 -- | <p/>
 newtype DescribeFileSystemsRequest = DescribeFileSystemsRequest 
-  { "MaxItems" :: NullOrUndefined (MaxItems)
-  , "Marker" :: NullOrUndefined (Marker)
-  , "CreationToken" :: NullOrUndefined (CreationToken)
-  , "FileSystemId" :: NullOrUndefined (FileSystemId)
+  { "MaxItems" :: Maybe (MaxItems)
+  , "Marker" :: Maybe (Marker)
+  , "CreationToken" :: Maybe (CreationToken)
+  , "FileSystemId" :: Maybe (FileSystemId)
   }
 derive instance newtypeDescribeFileSystemsRequest :: Newtype DescribeFileSystemsRequest _
 derive instance repGenericDescribeFileSystemsRequest :: Generic DescribeFileSystemsRequest _
@@ -228,19 +227,19 @@ instance encodeDescribeFileSystemsRequest :: Encode DescribeFileSystemsRequest w
 
 -- | Constructs DescribeFileSystemsRequest from required parameters
 newDescribeFileSystemsRequest :: DescribeFileSystemsRequest
-newDescribeFileSystemsRequest  = DescribeFileSystemsRequest { "CreationToken": (NullOrUndefined Nothing), "FileSystemId": (NullOrUndefined Nothing), "Marker": (NullOrUndefined Nothing), "MaxItems": (NullOrUndefined Nothing) }
+newDescribeFileSystemsRequest  = DescribeFileSystemsRequest { "CreationToken": Nothing, "FileSystemId": Nothing, "Marker": Nothing, "MaxItems": Nothing }
 
 -- | Constructs DescribeFileSystemsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeFileSystemsRequest' :: ( { "MaxItems" :: NullOrUndefined (MaxItems) , "Marker" :: NullOrUndefined (Marker) , "CreationToken" :: NullOrUndefined (CreationToken) , "FileSystemId" :: NullOrUndefined (FileSystemId) } -> {"MaxItems" :: NullOrUndefined (MaxItems) , "Marker" :: NullOrUndefined (Marker) , "CreationToken" :: NullOrUndefined (CreationToken) , "FileSystemId" :: NullOrUndefined (FileSystemId) } ) -> DescribeFileSystemsRequest
-newDescribeFileSystemsRequest'  customize = (DescribeFileSystemsRequest <<< customize) { "CreationToken": (NullOrUndefined Nothing), "FileSystemId": (NullOrUndefined Nothing), "Marker": (NullOrUndefined Nothing), "MaxItems": (NullOrUndefined Nothing) }
+newDescribeFileSystemsRequest' :: ( { "MaxItems" :: Maybe (MaxItems) , "Marker" :: Maybe (Marker) , "CreationToken" :: Maybe (CreationToken) , "FileSystemId" :: Maybe (FileSystemId) } -> {"MaxItems" :: Maybe (MaxItems) , "Marker" :: Maybe (Marker) , "CreationToken" :: Maybe (CreationToken) , "FileSystemId" :: Maybe (FileSystemId) } ) -> DescribeFileSystemsRequest
+newDescribeFileSystemsRequest'  customize = (DescribeFileSystemsRequest <<< customize) { "CreationToken": Nothing, "FileSystemId": Nothing, "Marker": Nothing, "MaxItems": Nothing }
 
 
 
 newtype DescribeFileSystemsResponse = DescribeFileSystemsResponse 
-  { "Marker" :: NullOrUndefined (Marker)
-  , "FileSystems" :: NullOrUndefined (FileSystemDescriptions)
-  , "NextMarker" :: NullOrUndefined (Marker)
+  { "Marker" :: Maybe (Marker)
+  , "FileSystems" :: Maybe (FileSystemDescriptions)
+  , "NextMarker" :: Maybe (Marker)
   }
 derive instance newtypeDescribeFileSystemsResponse :: Newtype DescribeFileSystemsResponse _
 derive instance repGenericDescribeFileSystemsResponse :: Generic DescribeFileSystemsResponse _
@@ -250,12 +249,12 @@ instance encodeDescribeFileSystemsResponse :: Encode DescribeFileSystemsResponse
 
 -- | Constructs DescribeFileSystemsResponse from required parameters
 newDescribeFileSystemsResponse :: DescribeFileSystemsResponse
-newDescribeFileSystemsResponse  = DescribeFileSystemsResponse { "FileSystems": (NullOrUndefined Nothing), "Marker": (NullOrUndefined Nothing), "NextMarker": (NullOrUndefined Nothing) }
+newDescribeFileSystemsResponse  = DescribeFileSystemsResponse { "FileSystems": Nothing, "Marker": Nothing, "NextMarker": Nothing }
 
 -- | Constructs DescribeFileSystemsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeFileSystemsResponse' :: ( { "Marker" :: NullOrUndefined (Marker) , "FileSystems" :: NullOrUndefined (FileSystemDescriptions) , "NextMarker" :: NullOrUndefined (Marker) } -> {"Marker" :: NullOrUndefined (Marker) , "FileSystems" :: NullOrUndefined (FileSystemDescriptions) , "NextMarker" :: NullOrUndefined (Marker) } ) -> DescribeFileSystemsResponse
-newDescribeFileSystemsResponse'  customize = (DescribeFileSystemsResponse <<< customize) { "FileSystems": (NullOrUndefined Nothing), "Marker": (NullOrUndefined Nothing), "NextMarker": (NullOrUndefined Nothing) }
+newDescribeFileSystemsResponse' :: ( { "Marker" :: Maybe (Marker) , "FileSystems" :: Maybe (FileSystemDescriptions) , "NextMarker" :: Maybe (Marker) } -> {"Marker" :: Maybe (Marker) , "FileSystems" :: Maybe (FileSystemDescriptions) , "NextMarker" :: Maybe (Marker) } ) -> DescribeFileSystemsResponse
+newDescribeFileSystemsResponse'  customize = (DescribeFileSystemsResponse <<< customize) { "FileSystems": Nothing, "Marker": Nothing, "NextMarker": Nothing }
 
 
 
@@ -302,10 +301,10 @@ newDescribeMountTargetSecurityGroupsResponse' _SecurityGroups customize = (Descr
 
 -- | <p/>
 newtype DescribeMountTargetsRequest = DescribeMountTargetsRequest 
-  { "MaxItems" :: NullOrUndefined (MaxItems)
-  , "Marker" :: NullOrUndefined (Marker)
-  , "FileSystemId" :: NullOrUndefined (FileSystemId)
-  , "MountTargetId" :: NullOrUndefined (MountTargetId)
+  { "MaxItems" :: Maybe (MaxItems)
+  , "Marker" :: Maybe (Marker)
+  , "FileSystemId" :: Maybe (FileSystemId)
+  , "MountTargetId" :: Maybe (MountTargetId)
   }
 derive instance newtypeDescribeMountTargetsRequest :: Newtype DescribeMountTargetsRequest _
 derive instance repGenericDescribeMountTargetsRequest :: Generic DescribeMountTargetsRequest _
@@ -315,20 +314,20 @@ instance encodeDescribeMountTargetsRequest :: Encode DescribeMountTargetsRequest
 
 -- | Constructs DescribeMountTargetsRequest from required parameters
 newDescribeMountTargetsRequest :: DescribeMountTargetsRequest
-newDescribeMountTargetsRequest  = DescribeMountTargetsRequest { "FileSystemId": (NullOrUndefined Nothing), "Marker": (NullOrUndefined Nothing), "MaxItems": (NullOrUndefined Nothing), "MountTargetId": (NullOrUndefined Nothing) }
+newDescribeMountTargetsRequest  = DescribeMountTargetsRequest { "FileSystemId": Nothing, "Marker": Nothing, "MaxItems": Nothing, "MountTargetId": Nothing }
 
 -- | Constructs DescribeMountTargetsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeMountTargetsRequest' :: ( { "MaxItems" :: NullOrUndefined (MaxItems) , "Marker" :: NullOrUndefined (Marker) , "FileSystemId" :: NullOrUndefined (FileSystemId) , "MountTargetId" :: NullOrUndefined (MountTargetId) } -> {"MaxItems" :: NullOrUndefined (MaxItems) , "Marker" :: NullOrUndefined (Marker) , "FileSystemId" :: NullOrUndefined (FileSystemId) , "MountTargetId" :: NullOrUndefined (MountTargetId) } ) -> DescribeMountTargetsRequest
-newDescribeMountTargetsRequest'  customize = (DescribeMountTargetsRequest <<< customize) { "FileSystemId": (NullOrUndefined Nothing), "Marker": (NullOrUndefined Nothing), "MaxItems": (NullOrUndefined Nothing), "MountTargetId": (NullOrUndefined Nothing) }
+newDescribeMountTargetsRequest' :: ( { "MaxItems" :: Maybe (MaxItems) , "Marker" :: Maybe (Marker) , "FileSystemId" :: Maybe (FileSystemId) , "MountTargetId" :: Maybe (MountTargetId) } -> {"MaxItems" :: Maybe (MaxItems) , "Marker" :: Maybe (Marker) , "FileSystemId" :: Maybe (FileSystemId) , "MountTargetId" :: Maybe (MountTargetId) } ) -> DescribeMountTargetsRequest
+newDescribeMountTargetsRequest'  customize = (DescribeMountTargetsRequest <<< customize) { "FileSystemId": Nothing, "Marker": Nothing, "MaxItems": Nothing, "MountTargetId": Nothing }
 
 
 
 -- | <p/>
 newtype DescribeMountTargetsResponse = DescribeMountTargetsResponse 
-  { "Marker" :: NullOrUndefined (Marker)
-  , "MountTargets" :: NullOrUndefined (MountTargetDescriptions)
-  , "NextMarker" :: NullOrUndefined (Marker)
+  { "Marker" :: Maybe (Marker)
+  , "MountTargets" :: Maybe (MountTargetDescriptions)
+  , "NextMarker" :: Maybe (Marker)
   }
 derive instance newtypeDescribeMountTargetsResponse :: Newtype DescribeMountTargetsResponse _
 derive instance repGenericDescribeMountTargetsResponse :: Generic DescribeMountTargetsResponse _
@@ -338,19 +337,19 @@ instance encodeDescribeMountTargetsResponse :: Encode DescribeMountTargetsRespon
 
 -- | Constructs DescribeMountTargetsResponse from required parameters
 newDescribeMountTargetsResponse :: DescribeMountTargetsResponse
-newDescribeMountTargetsResponse  = DescribeMountTargetsResponse { "Marker": (NullOrUndefined Nothing), "MountTargets": (NullOrUndefined Nothing), "NextMarker": (NullOrUndefined Nothing) }
+newDescribeMountTargetsResponse  = DescribeMountTargetsResponse { "Marker": Nothing, "MountTargets": Nothing, "NextMarker": Nothing }
 
 -- | Constructs DescribeMountTargetsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeMountTargetsResponse' :: ( { "Marker" :: NullOrUndefined (Marker) , "MountTargets" :: NullOrUndefined (MountTargetDescriptions) , "NextMarker" :: NullOrUndefined (Marker) } -> {"Marker" :: NullOrUndefined (Marker) , "MountTargets" :: NullOrUndefined (MountTargetDescriptions) , "NextMarker" :: NullOrUndefined (Marker) } ) -> DescribeMountTargetsResponse
-newDescribeMountTargetsResponse'  customize = (DescribeMountTargetsResponse <<< customize) { "Marker": (NullOrUndefined Nothing), "MountTargets": (NullOrUndefined Nothing), "NextMarker": (NullOrUndefined Nothing) }
+newDescribeMountTargetsResponse' :: ( { "Marker" :: Maybe (Marker) , "MountTargets" :: Maybe (MountTargetDescriptions) , "NextMarker" :: Maybe (Marker) } -> {"Marker" :: Maybe (Marker) , "MountTargets" :: Maybe (MountTargetDescriptions) , "NextMarker" :: Maybe (Marker) } ) -> DescribeMountTargetsResponse
+newDescribeMountTargetsResponse'  customize = (DescribeMountTargetsResponse <<< customize) { "Marker": Nothing, "MountTargets": Nothing, "NextMarker": Nothing }
 
 
 
 -- | <p/>
 newtype DescribeTagsRequest = DescribeTagsRequest 
-  { "MaxItems" :: NullOrUndefined (MaxItems)
-  , "Marker" :: NullOrUndefined (Marker)
+  { "MaxItems" :: Maybe (MaxItems)
+  , "Marker" :: Maybe (Marker)
   , "FileSystemId" :: (FileSystemId)
   }
 derive instance newtypeDescribeTagsRequest :: Newtype DescribeTagsRequest _
@@ -361,20 +360,20 @@ instance encodeDescribeTagsRequest :: Encode DescribeTagsRequest where encode = 
 
 -- | Constructs DescribeTagsRequest from required parameters
 newDescribeTagsRequest :: FileSystemId -> DescribeTagsRequest
-newDescribeTagsRequest _FileSystemId = DescribeTagsRequest { "FileSystemId": _FileSystemId, "Marker": (NullOrUndefined Nothing), "MaxItems": (NullOrUndefined Nothing) }
+newDescribeTagsRequest _FileSystemId = DescribeTagsRequest { "FileSystemId": _FileSystemId, "Marker": Nothing, "MaxItems": Nothing }
 
 -- | Constructs DescribeTagsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeTagsRequest' :: FileSystemId -> ( { "MaxItems" :: NullOrUndefined (MaxItems) , "Marker" :: NullOrUndefined (Marker) , "FileSystemId" :: (FileSystemId) } -> {"MaxItems" :: NullOrUndefined (MaxItems) , "Marker" :: NullOrUndefined (Marker) , "FileSystemId" :: (FileSystemId) } ) -> DescribeTagsRequest
-newDescribeTagsRequest' _FileSystemId customize = (DescribeTagsRequest <<< customize) { "FileSystemId": _FileSystemId, "Marker": (NullOrUndefined Nothing), "MaxItems": (NullOrUndefined Nothing) }
+newDescribeTagsRequest' :: FileSystemId -> ( { "MaxItems" :: Maybe (MaxItems) , "Marker" :: Maybe (Marker) , "FileSystemId" :: (FileSystemId) } -> {"MaxItems" :: Maybe (MaxItems) , "Marker" :: Maybe (Marker) , "FileSystemId" :: (FileSystemId) } ) -> DescribeTagsRequest
+newDescribeTagsRequest' _FileSystemId customize = (DescribeTagsRequest <<< customize) { "FileSystemId": _FileSystemId, "Marker": Nothing, "MaxItems": Nothing }
 
 
 
 -- | <p/>
 newtype DescribeTagsResponse = DescribeTagsResponse 
-  { "Marker" :: NullOrUndefined (Marker)
+  { "Marker" :: Maybe (Marker)
   , "Tags" :: (Tags)
-  , "NextMarker" :: NullOrUndefined (Marker)
+  , "NextMarker" :: Maybe (Marker)
   }
 derive instance newtypeDescribeTagsResponse :: Newtype DescribeTagsResponse _
 derive instance repGenericDescribeTagsResponse :: Generic DescribeTagsResponse _
@@ -384,12 +383,12 @@ instance encodeDescribeTagsResponse :: Encode DescribeTagsResponse where encode 
 
 -- | Constructs DescribeTagsResponse from required parameters
 newDescribeTagsResponse :: Tags -> DescribeTagsResponse
-newDescribeTagsResponse _Tags = DescribeTagsResponse { "Tags": _Tags, "Marker": (NullOrUndefined Nothing), "NextMarker": (NullOrUndefined Nothing) }
+newDescribeTagsResponse _Tags = DescribeTagsResponse { "Tags": _Tags, "Marker": Nothing, "NextMarker": Nothing }
 
 -- | Constructs DescribeTagsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeTagsResponse' :: Tags -> ( { "Marker" :: NullOrUndefined (Marker) , "Tags" :: (Tags) , "NextMarker" :: NullOrUndefined (Marker) } -> {"Marker" :: NullOrUndefined (Marker) , "Tags" :: (Tags) , "NextMarker" :: NullOrUndefined (Marker) } ) -> DescribeTagsResponse
-newDescribeTagsResponse' _Tags customize = (DescribeTagsResponse <<< customize) { "Tags": _Tags, "Marker": (NullOrUndefined Nothing), "NextMarker": (NullOrUndefined Nothing) }
+newDescribeTagsResponse' :: Tags -> ( { "Marker" :: Maybe (Marker) , "Tags" :: (Tags) , "NextMarker" :: Maybe (Marker) } -> {"Marker" :: Maybe (Marker) , "Tags" :: (Tags) , "NextMarker" :: Maybe (Marker) } ) -> DescribeTagsResponse
+newDescribeTagsResponse' _Tags customize = (DescribeTagsResponse <<< customize) { "Tags": _Tags, "Marker": Nothing, "NextMarker": Nothing }
 
 
 
@@ -423,7 +422,7 @@ instance encodeErrorMessage :: Encode ErrorMessage where encode = genericEncode 
 -- | <p>Returned if the file system you are trying to create already exists, with the creation token you provided.</p>
 newtype FileSystemAlreadyExists = FileSystemAlreadyExists 
   { "ErrorCode" :: (ErrorCode)
-  , "Message" :: NullOrUndefined (ErrorMessage)
+  , "Message" :: Maybe (ErrorMessage)
   , "FileSystemId" :: (FileSystemId)
   }
 derive instance newtypeFileSystemAlreadyExists :: Newtype FileSystemAlreadyExists _
@@ -434,12 +433,12 @@ instance encodeFileSystemAlreadyExists :: Encode FileSystemAlreadyExists where e
 
 -- | Constructs FileSystemAlreadyExists from required parameters
 newFileSystemAlreadyExists :: ErrorCode -> FileSystemId -> FileSystemAlreadyExists
-newFileSystemAlreadyExists _ErrorCode _FileSystemId = FileSystemAlreadyExists { "ErrorCode": _ErrorCode, "FileSystemId": _FileSystemId, "Message": (NullOrUndefined Nothing) }
+newFileSystemAlreadyExists _ErrorCode _FileSystemId = FileSystemAlreadyExists { "ErrorCode": _ErrorCode, "FileSystemId": _FileSystemId, "Message": Nothing }
 
 -- | Constructs FileSystemAlreadyExists's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newFileSystemAlreadyExists' :: ErrorCode -> FileSystemId -> ( { "ErrorCode" :: (ErrorCode) , "Message" :: NullOrUndefined (ErrorMessage) , "FileSystemId" :: (FileSystemId) } -> {"ErrorCode" :: (ErrorCode) , "Message" :: NullOrUndefined (ErrorMessage) , "FileSystemId" :: (FileSystemId) } ) -> FileSystemAlreadyExists
-newFileSystemAlreadyExists' _ErrorCode _FileSystemId customize = (FileSystemAlreadyExists <<< customize) { "ErrorCode": _ErrorCode, "FileSystemId": _FileSystemId, "Message": (NullOrUndefined Nothing) }
+newFileSystemAlreadyExists' :: ErrorCode -> FileSystemId -> ( { "ErrorCode" :: (ErrorCode) , "Message" :: Maybe (ErrorMessage) , "FileSystemId" :: (FileSystemId) } -> {"ErrorCode" :: (ErrorCode) , "Message" :: Maybe (ErrorMessage) , "FileSystemId" :: (FileSystemId) } ) -> FileSystemAlreadyExists
+newFileSystemAlreadyExists' _ErrorCode _FileSystemId customize = (FileSystemAlreadyExists <<< customize) { "ErrorCode": _ErrorCode, "FileSystemId": _FileSystemId, "Message": Nothing }
 
 
 
@@ -450,12 +449,12 @@ newtype FileSystemDescription = FileSystemDescription
   , "FileSystemId" :: (FileSystemId)
   , "CreationTime" :: (Types.Timestamp)
   , "LifeCycleState" :: (LifeCycleState)
-  , "Name" :: NullOrUndefined (TagValue)
+  , "Name" :: Maybe (TagValue)
   , "NumberOfMountTargets" :: (MountTargetCount)
   , "SizeInBytes" :: (FileSystemSize)
   , "PerformanceMode" :: (PerformanceMode)
-  , "Encrypted" :: NullOrUndefined (Encrypted)
-  , "KmsKeyId" :: NullOrUndefined (KmsKeyId)
+  , "Encrypted" :: Maybe (Encrypted)
+  , "KmsKeyId" :: Maybe (KmsKeyId)
   }
 derive instance newtypeFileSystemDescription :: Newtype FileSystemDescription _
 derive instance repGenericFileSystemDescription :: Generic FileSystemDescription _
@@ -465,12 +464,12 @@ instance encodeFileSystemDescription :: Encode FileSystemDescription where encod
 
 -- | Constructs FileSystemDescription from required parameters
 newFileSystemDescription :: Types.Timestamp -> CreationToken -> FileSystemId -> LifeCycleState -> MountTargetCount -> AwsAccountId -> PerformanceMode -> FileSystemSize -> FileSystemDescription
-newFileSystemDescription _CreationTime _CreationToken _FileSystemId _LifeCycleState _NumberOfMountTargets _OwnerId _PerformanceMode _SizeInBytes = FileSystemDescription { "CreationTime": _CreationTime, "CreationToken": _CreationToken, "FileSystemId": _FileSystemId, "LifeCycleState": _LifeCycleState, "NumberOfMountTargets": _NumberOfMountTargets, "OwnerId": _OwnerId, "PerformanceMode": _PerformanceMode, "SizeInBytes": _SizeInBytes, "Encrypted": (NullOrUndefined Nothing), "KmsKeyId": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing) }
+newFileSystemDescription _CreationTime _CreationToken _FileSystemId _LifeCycleState _NumberOfMountTargets _OwnerId _PerformanceMode _SizeInBytes = FileSystemDescription { "CreationTime": _CreationTime, "CreationToken": _CreationToken, "FileSystemId": _FileSystemId, "LifeCycleState": _LifeCycleState, "NumberOfMountTargets": _NumberOfMountTargets, "OwnerId": _OwnerId, "PerformanceMode": _PerformanceMode, "SizeInBytes": _SizeInBytes, "Encrypted": Nothing, "KmsKeyId": Nothing, "Name": Nothing }
 
 -- | Constructs FileSystemDescription's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newFileSystemDescription' :: Types.Timestamp -> CreationToken -> FileSystemId -> LifeCycleState -> MountTargetCount -> AwsAccountId -> PerformanceMode -> FileSystemSize -> ( { "OwnerId" :: (AwsAccountId) , "CreationToken" :: (CreationToken) , "FileSystemId" :: (FileSystemId) , "CreationTime" :: (Types.Timestamp) , "LifeCycleState" :: (LifeCycleState) , "Name" :: NullOrUndefined (TagValue) , "NumberOfMountTargets" :: (MountTargetCount) , "SizeInBytes" :: (FileSystemSize) , "PerformanceMode" :: (PerformanceMode) , "Encrypted" :: NullOrUndefined (Encrypted) , "KmsKeyId" :: NullOrUndefined (KmsKeyId) } -> {"OwnerId" :: (AwsAccountId) , "CreationToken" :: (CreationToken) , "FileSystemId" :: (FileSystemId) , "CreationTime" :: (Types.Timestamp) , "LifeCycleState" :: (LifeCycleState) , "Name" :: NullOrUndefined (TagValue) , "NumberOfMountTargets" :: (MountTargetCount) , "SizeInBytes" :: (FileSystemSize) , "PerformanceMode" :: (PerformanceMode) , "Encrypted" :: NullOrUndefined (Encrypted) , "KmsKeyId" :: NullOrUndefined (KmsKeyId) } ) -> FileSystemDescription
-newFileSystemDescription' _CreationTime _CreationToken _FileSystemId _LifeCycleState _NumberOfMountTargets _OwnerId _PerformanceMode _SizeInBytes customize = (FileSystemDescription <<< customize) { "CreationTime": _CreationTime, "CreationToken": _CreationToken, "FileSystemId": _FileSystemId, "LifeCycleState": _LifeCycleState, "NumberOfMountTargets": _NumberOfMountTargets, "OwnerId": _OwnerId, "PerformanceMode": _PerformanceMode, "SizeInBytes": _SizeInBytes, "Encrypted": (NullOrUndefined Nothing), "KmsKeyId": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing) }
+newFileSystemDescription' :: Types.Timestamp -> CreationToken -> FileSystemId -> LifeCycleState -> MountTargetCount -> AwsAccountId -> PerformanceMode -> FileSystemSize -> ( { "OwnerId" :: (AwsAccountId) , "CreationToken" :: (CreationToken) , "FileSystemId" :: (FileSystemId) , "CreationTime" :: (Types.Timestamp) , "LifeCycleState" :: (LifeCycleState) , "Name" :: Maybe (TagValue) , "NumberOfMountTargets" :: (MountTargetCount) , "SizeInBytes" :: (FileSystemSize) , "PerformanceMode" :: (PerformanceMode) , "Encrypted" :: Maybe (Encrypted) , "KmsKeyId" :: Maybe (KmsKeyId) } -> {"OwnerId" :: (AwsAccountId) , "CreationToken" :: (CreationToken) , "FileSystemId" :: (FileSystemId) , "CreationTime" :: (Types.Timestamp) , "LifeCycleState" :: (LifeCycleState) , "Name" :: Maybe (TagValue) , "NumberOfMountTargets" :: (MountTargetCount) , "SizeInBytes" :: (FileSystemSize) , "PerformanceMode" :: (PerformanceMode) , "Encrypted" :: Maybe (Encrypted) , "KmsKeyId" :: Maybe (KmsKeyId) } ) -> FileSystemDescription
+newFileSystemDescription' _CreationTime _CreationToken _FileSystemId _LifeCycleState _NumberOfMountTargets _OwnerId _PerformanceMode _SizeInBytes customize = (FileSystemDescription <<< customize) { "CreationTime": _CreationTime, "CreationToken": _CreationToken, "FileSystemId": _FileSystemId, "LifeCycleState": _LifeCycleState, "NumberOfMountTargets": _NumberOfMountTargets, "OwnerId": _OwnerId, "PerformanceMode": _PerformanceMode, "SizeInBytes": _SizeInBytes, "Encrypted": Nothing, "KmsKeyId": Nothing, "Name": Nothing }
 
 
 
@@ -495,7 +494,7 @@ instance encodeFileSystemId :: Encode FileSystemId where encode = genericEncode 
 -- | <p>Returned if a file system has mount targets.</p>
 newtype FileSystemInUse = FileSystemInUse 
   { "ErrorCode" :: (ErrorCode)
-  , "Message" :: NullOrUndefined (ErrorMessage)
+  , "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeFileSystemInUse :: Newtype FileSystemInUse _
 derive instance repGenericFileSystemInUse :: Generic FileSystemInUse _
@@ -505,19 +504,19 @@ instance encodeFileSystemInUse :: Encode FileSystemInUse where encode = genericE
 
 -- | Constructs FileSystemInUse from required parameters
 newFileSystemInUse :: ErrorCode -> FileSystemInUse
-newFileSystemInUse _ErrorCode = FileSystemInUse { "ErrorCode": _ErrorCode, "Message": (NullOrUndefined Nothing) }
+newFileSystemInUse _ErrorCode = FileSystemInUse { "ErrorCode": _ErrorCode, "Message": Nothing }
 
 -- | Constructs FileSystemInUse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newFileSystemInUse' :: ErrorCode -> ( { "ErrorCode" :: (ErrorCode) , "Message" :: NullOrUndefined (ErrorMessage) } -> {"ErrorCode" :: (ErrorCode) , "Message" :: NullOrUndefined (ErrorMessage) } ) -> FileSystemInUse
-newFileSystemInUse' _ErrorCode customize = (FileSystemInUse <<< customize) { "ErrorCode": _ErrorCode, "Message": (NullOrUndefined Nothing) }
+newFileSystemInUse' :: ErrorCode -> ( { "ErrorCode" :: (ErrorCode) , "Message" :: Maybe (ErrorMessage) } -> {"ErrorCode" :: (ErrorCode) , "Message" :: Maybe (ErrorMessage) } ) -> FileSystemInUse
+newFileSystemInUse' _ErrorCode customize = (FileSystemInUse <<< customize) { "ErrorCode": _ErrorCode, "Message": Nothing }
 
 
 
 -- | <p>Returned if the AWS account has already created maximum number of file systems allowed per account.</p>
 newtype FileSystemLimitExceeded = FileSystemLimitExceeded 
   { "ErrorCode" :: (ErrorCode)
-  , "Message" :: NullOrUndefined (ErrorMessage)
+  , "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeFileSystemLimitExceeded :: Newtype FileSystemLimitExceeded _
 derive instance repGenericFileSystemLimitExceeded :: Generic FileSystemLimitExceeded _
@@ -527,19 +526,19 @@ instance encodeFileSystemLimitExceeded :: Encode FileSystemLimitExceeded where e
 
 -- | Constructs FileSystemLimitExceeded from required parameters
 newFileSystemLimitExceeded :: ErrorCode -> FileSystemLimitExceeded
-newFileSystemLimitExceeded _ErrorCode = FileSystemLimitExceeded { "ErrorCode": _ErrorCode, "Message": (NullOrUndefined Nothing) }
+newFileSystemLimitExceeded _ErrorCode = FileSystemLimitExceeded { "ErrorCode": _ErrorCode, "Message": Nothing }
 
 -- | Constructs FileSystemLimitExceeded's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newFileSystemLimitExceeded' :: ErrorCode -> ( { "ErrorCode" :: (ErrorCode) , "Message" :: NullOrUndefined (ErrorMessage) } -> {"ErrorCode" :: (ErrorCode) , "Message" :: NullOrUndefined (ErrorMessage) } ) -> FileSystemLimitExceeded
-newFileSystemLimitExceeded' _ErrorCode customize = (FileSystemLimitExceeded <<< customize) { "ErrorCode": _ErrorCode, "Message": (NullOrUndefined Nothing) }
+newFileSystemLimitExceeded' :: ErrorCode -> ( { "ErrorCode" :: (ErrorCode) , "Message" :: Maybe (ErrorMessage) } -> {"ErrorCode" :: (ErrorCode) , "Message" :: Maybe (ErrorMessage) } ) -> FileSystemLimitExceeded
+newFileSystemLimitExceeded' _ErrorCode customize = (FileSystemLimitExceeded <<< customize) { "ErrorCode": _ErrorCode, "Message": Nothing }
 
 
 
 -- | <p>Returned if the specified <code>FileSystemId</code> does not exist in the requester's AWS account.</p>
 newtype FileSystemNotFound = FileSystemNotFound 
   { "ErrorCode" :: (ErrorCode)
-  , "Message" :: NullOrUndefined (ErrorMessage)
+  , "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeFileSystemNotFound :: Newtype FileSystemNotFound _
 derive instance repGenericFileSystemNotFound :: Generic FileSystemNotFound _
@@ -549,19 +548,19 @@ instance encodeFileSystemNotFound :: Encode FileSystemNotFound where encode = ge
 
 -- | Constructs FileSystemNotFound from required parameters
 newFileSystemNotFound :: ErrorCode -> FileSystemNotFound
-newFileSystemNotFound _ErrorCode = FileSystemNotFound { "ErrorCode": _ErrorCode, "Message": (NullOrUndefined Nothing) }
+newFileSystemNotFound _ErrorCode = FileSystemNotFound { "ErrorCode": _ErrorCode, "Message": Nothing }
 
 -- | Constructs FileSystemNotFound's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newFileSystemNotFound' :: ErrorCode -> ( { "ErrorCode" :: (ErrorCode) , "Message" :: NullOrUndefined (ErrorMessage) } -> {"ErrorCode" :: (ErrorCode) , "Message" :: NullOrUndefined (ErrorMessage) } ) -> FileSystemNotFound
-newFileSystemNotFound' _ErrorCode customize = (FileSystemNotFound <<< customize) { "ErrorCode": _ErrorCode, "Message": (NullOrUndefined Nothing) }
+newFileSystemNotFound' :: ErrorCode -> ( { "ErrorCode" :: (ErrorCode) , "Message" :: Maybe (ErrorMessage) } -> {"ErrorCode" :: (ErrorCode) , "Message" :: Maybe (ErrorMessage) } ) -> FileSystemNotFound
+newFileSystemNotFound' _ErrorCode customize = (FileSystemNotFound <<< customize) { "ErrorCode": _ErrorCode, "Message": Nothing }
 
 
 
 -- | <p>Latest known metered size (in bytes) of data stored in the file system, in its <code>Value</code> field, and the time at which that size was determined in its <code>Timestamp</code> field. Note that the value does not represent the size of a consistent snapshot of the file system, but it is eventually consistent when there are no writes to the file system. That is, the value will represent the actual size only if the file system is not modified for a period longer than a couple of hours. Otherwise, the value is not necessarily the exact size the file system was at any instant in time.</p>
 newtype FileSystemSize = FileSystemSize 
   { "Value" :: (FileSystemSizeValue)
-  , "Timestamp" :: NullOrUndefined (Types.Timestamp)
+  , "Timestamp" :: Maybe (Types.Timestamp)
   }
 derive instance newtypeFileSystemSize :: Newtype FileSystemSize _
 derive instance repGenericFileSystemSize :: Generic FileSystemSize _
@@ -571,12 +570,12 @@ instance encodeFileSystemSize :: Encode FileSystemSize where encode = genericEnc
 
 -- | Constructs FileSystemSize from required parameters
 newFileSystemSize :: FileSystemSizeValue -> FileSystemSize
-newFileSystemSize _Value = FileSystemSize { "Value": _Value, "Timestamp": (NullOrUndefined Nothing) }
+newFileSystemSize _Value = FileSystemSize { "Value": _Value, "Timestamp": Nothing }
 
 -- | Constructs FileSystemSize's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newFileSystemSize' :: FileSystemSizeValue -> ( { "Value" :: (FileSystemSizeValue) , "Timestamp" :: NullOrUndefined (Types.Timestamp) } -> {"Value" :: (FileSystemSizeValue) , "Timestamp" :: NullOrUndefined (Types.Timestamp) } ) -> FileSystemSize
-newFileSystemSize' _Value customize = (FileSystemSize <<< customize) { "Value": _Value, "Timestamp": (NullOrUndefined Nothing) }
+newFileSystemSize' :: FileSystemSizeValue -> ( { "Value" :: (FileSystemSizeValue) , "Timestamp" :: Maybe (Types.Timestamp) } -> {"Value" :: (FileSystemSizeValue) , "Timestamp" :: Maybe (Types.Timestamp) } ) -> FileSystemSize
+newFileSystemSize' _Value customize = (FileSystemSize <<< customize) { "Value": _Value, "Timestamp": Nothing }
 
 
 
@@ -592,7 +591,7 @@ instance encodeFileSystemSizeValue :: Encode FileSystemSizeValue where encode = 
 -- | <p>Returned if the file system's life cycle state is not "created".</p>
 newtype IncorrectFileSystemLifeCycleState = IncorrectFileSystemLifeCycleState 
   { "ErrorCode" :: (ErrorCode)
-  , "Message" :: NullOrUndefined (ErrorMessage)
+  , "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeIncorrectFileSystemLifeCycleState :: Newtype IncorrectFileSystemLifeCycleState _
 derive instance repGenericIncorrectFileSystemLifeCycleState :: Generic IncorrectFileSystemLifeCycleState _
@@ -602,19 +601,19 @@ instance encodeIncorrectFileSystemLifeCycleState :: Encode IncorrectFileSystemLi
 
 -- | Constructs IncorrectFileSystemLifeCycleState from required parameters
 newIncorrectFileSystemLifeCycleState :: ErrorCode -> IncorrectFileSystemLifeCycleState
-newIncorrectFileSystemLifeCycleState _ErrorCode = IncorrectFileSystemLifeCycleState { "ErrorCode": _ErrorCode, "Message": (NullOrUndefined Nothing) }
+newIncorrectFileSystemLifeCycleState _ErrorCode = IncorrectFileSystemLifeCycleState { "ErrorCode": _ErrorCode, "Message": Nothing }
 
 -- | Constructs IncorrectFileSystemLifeCycleState's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newIncorrectFileSystemLifeCycleState' :: ErrorCode -> ( { "ErrorCode" :: (ErrorCode) , "Message" :: NullOrUndefined (ErrorMessage) } -> {"ErrorCode" :: (ErrorCode) , "Message" :: NullOrUndefined (ErrorMessage) } ) -> IncorrectFileSystemLifeCycleState
-newIncorrectFileSystemLifeCycleState' _ErrorCode customize = (IncorrectFileSystemLifeCycleState <<< customize) { "ErrorCode": _ErrorCode, "Message": (NullOrUndefined Nothing) }
+newIncorrectFileSystemLifeCycleState' :: ErrorCode -> ( { "ErrorCode" :: (ErrorCode) , "Message" :: Maybe (ErrorMessage) } -> {"ErrorCode" :: (ErrorCode) , "Message" :: Maybe (ErrorMessage) } ) -> IncorrectFileSystemLifeCycleState
+newIncorrectFileSystemLifeCycleState' _ErrorCode customize = (IncorrectFileSystemLifeCycleState <<< customize) { "ErrorCode": _ErrorCode, "Message": Nothing }
 
 
 
 -- | <p>Returned if the mount target is not in the correct state for the operation.</p>
 newtype IncorrectMountTargetState = IncorrectMountTargetState 
   { "ErrorCode" :: (ErrorCode)
-  , "Message" :: NullOrUndefined (ErrorMessage)
+  , "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeIncorrectMountTargetState :: Newtype IncorrectMountTargetState _
 derive instance repGenericIncorrectMountTargetState :: Generic IncorrectMountTargetState _
@@ -624,19 +623,19 @@ instance encodeIncorrectMountTargetState :: Encode IncorrectMountTargetState whe
 
 -- | Constructs IncorrectMountTargetState from required parameters
 newIncorrectMountTargetState :: ErrorCode -> IncorrectMountTargetState
-newIncorrectMountTargetState _ErrorCode = IncorrectMountTargetState { "ErrorCode": _ErrorCode, "Message": (NullOrUndefined Nothing) }
+newIncorrectMountTargetState _ErrorCode = IncorrectMountTargetState { "ErrorCode": _ErrorCode, "Message": Nothing }
 
 -- | Constructs IncorrectMountTargetState's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newIncorrectMountTargetState' :: ErrorCode -> ( { "ErrorCode" :: (ErrorCode) , "Message" :: NullOrUndefined (ErrorMessage) } -> {"ErrorCode" :: (ErrorCode) , "Message" :: NullOrUndefined (ErrorMessage) } ) -> IncorrectMountTargetState
-newIncorrectMountTargetState' _ErrorCode customize = (IncorrectMountTargetState <<< customize) { "ErrorCode": _ErrorCode, "Message": (NullOrUndefined Nothing) }
+newIncorrectMountTargetState' :: ErrorCode -> ( { "ErrorCode" :: (ErrorCode) , "Message" :: Maybe (ErrorMessage) } -> {"ErrorCode" :: (ErrorCode) , "Message" :: Maybe (ErrorMessage) } ) -> IncorrectMountTargetState
+newIncorrectMountTargetState' _ErrorCode customize = (IncorrectMountTargetState <<< customize) { "ErrorCode": _ErrorCode, "Message": Nothing }
 
 
 
 -- | <p>Returned if an error occurred on the server side.</p>
 newtype InternalServerError = InternalServerError 
   { "ErrorCode" :: (ErrorCode)
-  , "Message" :: NullOrUndefined (ErrorMessage)
+  , "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeInternalServerError :: Newtype InternalServerError _
 derive instance repGenericInternalServerError :: Generic InternalServerError _
@@ -646,12 +645,12 @@ instance encodeInternalServerError :: Encode InternalServerError where encode = 
 
 -- | Constructs InternalServerError from required parameters
 newInternalServerError :: ErrorCode -> InternalServerError
-newInternalServerError _ErrorCode = InternalServerError { "ErrorCode": _ErrorCode, "Message": (NullOrUndefined Nothing) }
+newInternalServerError _ErrorCode = InternalServerError { "ErrorCode": _ErrorCode, "Message": Nothing }
 
 -- | Constructs InternalServerError's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInternalServerError' :: ErrorCode -> ( { "ErrorCode" :: (ErrorCode) , "Message" :: NullOrUndefined (ErrorMessage) } -> {"ErrorCode" :: (ErrorCode) , "Message" :: NullOrUndefined (ErrorMessage) } ) -> InternalServerError
-newInternalServerError' _ErrorCode customize = (InternalServerError <<< customize) { "ErrorCode": _ErrorCode, "Message": (NullOrUndefined Nothing) }
+newInternalServerError' :: ErrorCode -> ( { "ErrorCode" :: (ErrorCode) , "Message" :: Maybe (ErrorMessage) } -> {"ErrorCode" :: (ErrorCode) , "Message" :: Maybe (ErrorMessage) } ) -> InternalServerError
+newInternalServerError' _ErrorCode customize = (InternalServerError <<< customize) { "ErrorCode": _ErrorCode, "Message": Nothing }
 
 
 
@@ -667,7 +666,7 @@ instance encodeIpAddress :: Encode IpAddress where encode = genericEncode option
 -- | <p>Returned if the request specified an <code>IpAddress</code> that is already in use in the subnet.</p>
 newtype IpAddressInUse = IpAddressInUse 
   { "ErrorCode" :: (ErrorCode)
-  , "Message" :: NullOrUndefined (ErrorMessage)
+  , "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeIpAddressInUse :: Newtype IpAddressInUse _
 derive instance repGenericIpAddressInUse :: Generic IpAddressInUse _
@@ -677,12 +676,12 @@ instance encodeIpAddressInUse :: Encode IpAddressInUse where encode = genericEnc
 
 -- | Constructs IpAddressInUse from required parameters
 newIpAddressInUse :: ErrorCode -> IpAddressInUse
-newIpAddressInUse _ErrorCode = IpAddressInUse { "ErrorCode": _ErrorCode, "Message": (NullOrUndefined Nothing) }
+newIpAddressInUse _ErrorCode = IpAddressInUse { "ErrorCode": _ErrorCode, "Message": Nothing }
 
 -- | Constructs IpAddressInUse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newIpAddressInUse' :: ErrorCode -> ( { "ErrorCode" :: (ErrorCode) , "Message" :: NullOrUndefined (ErrorMessage) } -> {"ErrorCode" :: (ErrorCode) , "Message" :: NullOrUndefined (ErrorMessage) } ) -> IpAddressInUse
-newIpAddressInUse' _ErrorCode customize = (IpAddressInUse <<< customize) { "ErrorCode": _ErrorCode, "Message": (NullOrUndefined Nothing) }
+newIpAddressInUse' :: ErrorCode -> ( { "ErrorCode" :: (ErrorCode) , "Message" :: Maybe (ErrorMessage) } -> {"ErrorCode" :: (ErrorCode) , "Message" :: Maybe (ErrorMessage) } ) -> IpAddressInUse
+newIpAddressInUse' _ErrorCode customize = (IpAddressInUse <<< customize) { "ErrorCode": _ErrorCode, "Message": Nothing }
 
 
 
@@ -725,7 +724,7 @@ instance encodeMaxItems :: Encode MaxItems where encode = genericEncode options
 -- | <p/>
 newtype ModifyMountTargetSecurityGroupsRequest = ModifyMountTargetSecurityGroupsRequest 
   { "MountTargetId" :: (MountTargetId)
-  , "SecurityGroups" :: NullOrUndefined (SecurityGroups)
+  , "SecurityGroups" :: Maybe (SecurityGroups)
   }
 derive instance newtypeModifyMountTargetSecurityGroupsRequest :: Newtype ModifyMountTargetSecurityGroupsRequest _
 derive instance repGenericModifyMountTargetSecurityGroupsRequest :: Generic ModifyMountTargetSecurityGroupsRequest _
@@ -735,19 +734,19 @@ instance encodeModifyMountTargetSecurityGroupsRequest :: Encode ModifyMountTarge
 
 -- | Constructs ModifyMountTargetSecurityGroupsRequest from required parameters
 newModifyMountTargetSecurityGroupsRequest :: MountTargetId -> ModifyMountTargetSecurityGroupsRequest
-newModifyMountTargetSecurityGroupsRequest _MountTargetId = ModifyMountTargetSecurityGroupsRequest { "MountTargetId": _MountTargetId, "SecurityGroups": (NullOrUndefined Nothing) }
+newModifyMountTargetSecurityGroupsRequest _MountTargetId = ModifyMountTargetSecurityGroupsRequest { "MountTargetId": _MountTargetId, "SecurityGroups": Nothing }
 
 -- | Constructs ModifyMountTargetSecurityGroupsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newModifyMountTargetSecurityGroupsRequest' :: MountTargetId -> ( { "MountTargetId" :: (MountTargetId) , "SecurityGroups" :: NullOrUndefined (SecurityGroups) } -> {"MountTargetId" :: (MountTargetId) , "SecurityGroups" :: NullOrUndefined (SecurityGroups) } ) -> ModifyMountTargetSecurityGroupsRequest
-newModifyMountTargetSecurityGroupsRequest' _MountTargetId customize = (ModifyMountTargetSecurityGroupsRequest <<< customize) { "MountTargetId": _MountTargetId, "SecurityGroups": (NullOrUndefined Nothing) }
+newModifyMountTargetSecurityGroupsRequest' :: MountTargetId -> ( { "MountTargetId" :: (MountTargetId) , "SecurityGroups" :: Maybe (SecurityGroups) } -> {"MountTargetId" :: (MountTargetId) , "SecurityGroups" :: Maybe (SecurityGroups) } ) -> ModifyMountTargetSecurityGroupsRequest
+newModifyMountTargetSecurityGroupsRequest' _MountTargetId customize = (ModifyMountTargetSecurityGroupsRequest <<< customize) { "MountTargetId": _MountTargetId, "SecurityGroups": Nothing }
 
 
 
 -- | <p>Returned if the mount target would violate one of the specified restrictions based on the file system's existing mount targets.</p>
 newtype MountTargetConflict = MountTargetConflict 
   { "ErrorCode" :: (ErrorCode)
-  , "Message" :: NullOrUndefined (ErrorMessage)
+  , "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeMountTargetConflict :: Newtype MountTargetConflict _
 derive instance repGenericMountTargetConflict :: Generic MountTargetConflict _
@@ -757,12 +756,12 @@ instance encodeMountTargetConflict :: Encode MountTargetConflict where encode = 
 
 -- | Constructs MountTargetConflict from required parameters
 newMountTargetConflict :: ErrorCode -> MountTargetConflict
-newMountTargetConflict _ErrorCode = MountTargetConflict { "ErrorCode": _ErrorCode, "Message": (NullOrUndefined Nothing) }
+newMountTargetConflict _ErrorCode = MountTargetConflict { "ErrorCode": _ErrorCode, "Message": Nothing }
 
 -- | Constructs MountTargetConflict's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newMountTargetConflict' :: ErrorCode -> ( { "ErrorCode" :: (ErrorCode) , "Message" :: NullOrUndefined (ErrorMessage) } -> {"ErrorCode" :: (ErrorCode) , "Message" :: NullOrUndefined (ErrorMessage) } ) -> MountTargetConflict
-newMountTargetConflict' _ErrorCode customize = (MountTargetConflict <<< customize) { "ErrorCode": _ErrorCode, "Message": (NullOrUndefined Nothing) }
+newMountTargetConflict' :: ErrorCode -> ( { "ErrorCode" :: (ErrorCode) , "Message" :: Maybe (ErrorMessage) } -> {"ErrorCode" :: (ErrorCode) , "Message" :: Maybe (ErrorMessage) } ) -> MountTargetConflict
+newMountTargetConflict' _ErrorCode customize = (MountTargetConflict <<< customize) { "ErrorCode": _ErrorCode, "Message": Nothing }
 
 
 
@@ -777,13 +776,13 @@ instance encodeMountTargetCount :: Encode MountTargetCount where encode = generi
 
 -- | <p>Provides a description of a mount target.</p>
 newtype MountTargetDescription = MountTargetDescription 
-  { "OwnerId" :: NullOrUndefined (AwsAccountId)
+  { "OwnerId" :: Maybe (AwsAccountId)
   , "MountTargetId" :: (MountTargetId)
   , "FileSystemId" :: (FileSystemId)
   , "SubnetId" :: (SubnetId)
   , "LifeCycleState" :: (LifeCycleState)
-  , "IpAddress" :: NullOrUndefined (IpAddress)
-  , "NetworkInterfaceId" :: NullOrUndefined (NetworkInterfaceId)
+  , "IpAddress" :: Maybe (IpAddress)
+  , "NetworkInterfaceId" :: Maybe (NetworkInterfaceId)
   }
 derive instance newtypeMountTargetDescription :: Newtype MountTargetDescription _
 derive instance repGenericMountTargetDescription :: Generic MountTargetDescription _
@@ -793,12 +792,12 @@ instance encodeMountTargetDescription :: Encode MountTargetDescription where enc
 
 -- | Constructs MountTargetDescription from required parameters
 newMountTargetDescription :: FileSystemId -> LifeCycleState -> MountTargetId -> SubnetId -> MountTargetDescription
-newMountTargetDescription _FileSystemId _LifeCycleState _MountTargetId _SubnetId = MountTargetDescription { "FileSystemId": _FileSystemId, "LifeCycleState": _LifeCycleState, "MountTargetId": _MountTargetId, "SubnetId": _SubnetId, "IpAddress": (NullOrUndefined Nothing), "NetworkInterfaceId": (NullOrUndefined Nothing), "OwnerId": (NullOrUndefined Nothing) }
+newMountTargetDescription _FileSystemId _LifeCycleState _MountTargetId _SubnetId = MountTargetDescription { "FileSystemId": _FileSystemId, "LifeCycleState": _LifeCycleState, "MountTargetId": _MountTargetId, "SubnetId": _SubnetId, "IpAddress": Nothing, "NetworkInterfaceId": Nothing, "OwnerId": Nothing }
 
 -- | Constructs MountTargetDescription's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newMountTargetDescription' :: FileSystemId -> LifeCycleState -> MountTargetId -> SubnetId -> ( { "OwnerId" :: NullOrUndefined (AwsAccountId) , "MountTargetId" :: (MountTargetId) , "FileSystemId" :: (FileSystemId) , "SubnetId" :: (SubnetId) , "LifeCycleState" :: (LifeCycleState) , "IpAddress" :: NullOrUndefined (IpAddress) , "NetworkInterfaceId" :: NullOrUndefined (NetworkInterfaceId) } -> {"OwnerId" :: NullOrUndefined (AwsAccountId) , "MountTargetId" :: (MountTargetId) , "FileSystemId" :: (FileSystemId) , "SubnetId" :: (SubnetId) , "LifeCycleState" :: (LifeCycleState) , "IpAddress" :: NullOrUndefined (IpAddress) , "NetworkInterfaceId" :: NullOrUndefined (NetworkInterfaceId) } ) -> MountTargetDescription
-newMountTargetDescription' _FileSystemId _LifeCycleState _MountTargetId _SubnetId customize = (MountTargetDescription <<< customize) { "FileSystemId": _FileSystemId, "LifeCycleState": _LifeCycleState, "MountTargetId": _MountTargetId, "SubnetId": _SubnetId, "IpAddress": (NullOrUndefined Nothing), "NetworkInterfaceId": (NullOrUndefined Nothing), "OwnerId": (NullOrUndefined Nothing) }
+newMountTargetDescription' :: FileSystemId -> LifeCycleState -> MountTargetId -> SubnetId -> ( { "OwnerId" :: Maybe (AwsAccountId) , "MountTargetId" :: (MountTargetId) , "FileSystemId" :: (FileSystemId) , "SubnetId" :: (SubnetId) , "LifeCycleState" :: (LifeCycleState) , "IpAddress" :: Maybe (IpAddress) , "NetworkInterfaceId" :: Maybe (NetworkInterfaceId) } -> {"OwnerId" :: Maybe (AwsAccountId) , "MountTargetId" :: (MountTargetId) , "FileSystemId" :: (FileSystemId) , "SubnetId" :: (SubnetId) , "LifeCycleState" :: (LifeCycleState) , "IpAddress" :: Maybe (IpAddress) , "NetworkInterfaceId" :: Maybe (NetworkInterfaceId) } ) -> MountTargetDescription
+newMountTargetDescription' _FileSystemId _LifeCycleState _MountTargetId _SubnetId customize = (MountTargetDescription <<< customize) { "FileSystemId": _FileSystemId, "LifeCycleState": _LifeCycleState, "MountTargetId": _MountTargetId, "SubnetId": _SubnetId, "IpAddress": Nothing, "NetworkInterfaceId": Nothing, "OwnerId": Nothing }
 
 
 
@@ -823,7 +822,7 @@ instance encodeMountTargetId :: Encode MountTargetId where encode = genericEncod
 -- | <p>Returned if there is no mount target with the specified ID found in the caller's account.</p>
 newtype MountTargetNotFound = MountTargetNotFound 
   { "ErrorCode" :: (ErrorCode)
-  , "Message" :: NullOrUndefined (ErrorMessage)
+  , "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeMountTargetNotFound :: Newtype MountTargetNotFound _
 derive instance repGenericMountTargetNotFound :: Generic MountTargetNotFound _
@@ -833,12 +832,12 @@ instance encodeMountTargetNotFound :: Encode MountTargetNotFound where encode = 
 
 -- | Constructs MountTargetNotFound from required parameters
 newMountTargetNotFound :: ErrorCode -> MountTargetNotFound
-newMountTargetNotFound _ErrorCode = MountTargetNotFound { "ErrorCode": _ErrorCode, "Message": (NullOrUndefined Nothing) }
+newMountTargetNotFound _ErrorCode = MountTargetNotFound { "ErrorCode": _ErrorCode, "Message": Nothing }
 
 -- | Constructs MountTargetNotFound's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newMountTargetNotFound' :: ErrorCode -> ( { "ErrorCode" :: (ErrorCode) , "Message" :: NullOrUndefined (ErrorMessage) } -> {"ErrorCode" :: (ErrorCode) , "Message" :: NullOrUndefined (ErrorMessage) } ) -> MountTargetNotFound
-newMountTargetNotFound' _ErrorCode customize = (MountTargetNotFound <<< customize) { "ErrorCode": _ErrorCode, "Message": (NullOrUndefined Nothing) }
+newMountTargetNotFound' :: ErrorCode -> ( { "ErrorCode" :: (ErrorCode) , "Message" :: Maybe (ErrorMessage) } -> {"ErrorCode" :: (ErrorCode) , "Message" :: Maybe (ErrorMessage) } ) -> MountTargetNotFound
+newMountTargetNotFound' _ErrorCode customize = (MountTargetNotFound <<< customize) { "ErrorCode": _ErrorCode, "Message": Nothing }
 
 
 
@@ -854,7 +853,7 @@ instance encodeNetworkInterfaceId :: Encode NetworkInterfaceId where encode = ge
 -- | <p> The calling account has reached the ENI limit for the specific AWS region. Client should try to delete some ENIs or get its account limit raised. For more information, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Appendix_Limits.html">Amazon VPC Limits</a> in the Amazon Virtual Private Cloud User Guide (see the Network interfaces per VPC entry in the table). </p>
 newtype NetworkInterfaceLimitExceeded = NetworkInterfaceLimitExceeded 
   { "ErrorCode" :: (ErrorCode)
-  , "Message" :: NullOrUndefined (ErrorMessage)
+  , "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeNetworkInterfaceLimitExceeded :: Newtype NetworkInterfaceLimitExceeded _
 derive instance repGenericNetworkInterfaceLimitExceeded :: Generic NetworkInterfaceLimitExceeded _
@@ -864,19 +863,19 @@ instance encodeNetworkInterfaceLimitExceeded :: Encode NetworkInterfaceLimitExce
 
 -- | Constructs NetworkInterfaceLimitExceeded from required parameters
 newNetworkInterfaceLimitExceeded :: ErrorCode -> NetworkInterfaceLimitExceeded
-newNetworkInterfaceLimitExceeded _ErrorCode = NetworkInterfaceLimitExceeded { "ErrorCode": _ErrorCode, "Message": (NullOrUndefined Nothing) }
+newNetworkInterfaceLimitExceeded _ErrorCode = NetworkInterfaceLimitExceeded { "ErrorCode": _ErrorCode, "Message": Nothing }
 
 -- | Constructs NetworkInterfaceLimitExceeded's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newNetworkInterfaceLimitExceeded' :: ErrorCode -> ( { "ErrorCode" :: (ErrorCode) , "Message" :: NullOrUndefined (ErrorMessage) } -> {"ErrorCode" :: (ErrorCode) , "Message" :: NullOrUndefined (ErrorMessage) } ) -> NetworkInterfaceLimitExceeded
-newNetworkInterfaceLimitExceeded' _ErrorCode customize = (NetworkInterfaceLimitExceeded <<< customize) { "ErrorCode": _ErrorCode, "Message": (NullOrUndefined Nothing) }
+newNetworkInterfaceLimitExceeded' :: ErrorCode -> ( { "ErrorCode" :: (ErrorCode) , "Message" :: Maybe (ErrorMessage) } -> {"ErrorCode" :: (ErrorCode) , "Message" :: Maybe (ErrorMessage) } ) -> NetworkInterfaceLimitExceeded
+newNetworkInterfaceLimitExceeded' _ErrorCode customize = (NetworkInterfaceLimitExceeded <<< customize) { "ErrorCode": _ErrorCode, "Message": Nothing }
 
 
 
 -- | <p>Returned if <code>IpAddress</code> was not specified in the request and there are no free IP addresses in the subnet.</p>
 newtype NoFreeAddressesInSubnet = NoFreeAddressesInSubnet 
   { "ErrorCode" :: (ErrorCode)
-  , "Message" :: NullOrUndefined (ErrorMessage)
+  , "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeNoFreeAddressesInSubnet :: Newtype NoFreeAddressesInSubnet _
 derive instance repGenericNoFreeAddressesInSubnet :: Generic NoFreeAddressesInSubnet _
@@ -886,12 +885,12 @@ instance encodeNoFreeAddressesInSubnet :: Encode NoFreeAddressesInSubnet where e
 
 -- | Constructs NoFreeAddressesInSubnet from required parameters
 newNoFreeAddressesInSubnet :: ErrorCode -> NoFreeAddressesInSubnet
-newNoFreeAddressesInSubnet _ErrorCode = NoFreeAddressesInSubnet { "ErrorCode": _ErrorCode, "Message": (NullOrUndefined Nothing) }
+newNoFreeAddressesInSubnet _ErrorCode = NoFreeAddressesInSubnet { "ErrorCode": _ErrorCode, "Message": Nothing }
 
 -- | Constructs NoFreeAddressesInSubnet's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newNoFreeAddressesInSubnet' :: ErrorCode -> ( { "ErrorCode" :: (ErrorCode) , "Message" :: NullOrUndefined (ErrorMessage) } -> {"ErrorCode" :: (ErrorCode) , "Message" :: NullOrUndefined (ErrorMessage) } ) -> NoFreeAddressesInSubnet
-newNoFreeAddressesInSubnet' _ErrorCode customize = (NoFreeAddressesInSubnet <<< customize) { "ErrorCode": _ErrorCode, "Message": (NullOrUndefined Nothing) }
+newNoFreeAddressesInSubnet' :: ErrorCode -> ( { "ErrorCode" :: (ErrorCode) , "Message" :: Maybe (ErrorMessage) } -> {"ErrorCode" :: (ErrorCode) , "Message" :: Maybe (ErrorMessage) } ) -> NoFreeAddressesInSubnet
+newNoFreeAddressesInSubnet' _ErrorCode customize = (NoFreeAddressesInSubnet <<< customize) { "ErrorCode": _ErrorCode, "Message": Nothing }
 
 
 
@@ -916,7 +915,7 @@ instance encodeSecurityGroup :: Encode SecurityGroup where encode = genericEncod
 -- | <p>Returned if the size of <code>SecurityGroups</code> specified in the request is greater than five.</p>
 newtype SecurityGroupLimitExceeded = SecurityGroupLimitExceeded 
   { "ErrorCode" :: (ErrorCode)
-  , "Message" :: NullOrUndefined (ErrorMessage)
+  , "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeSecurityGroupLimitExceeded :: Newtype SecurityGroupLimitExceeded _
 derive instance repGenericSecurityGroupLimitExceeded :: Generic SecurityGroupLimitExceeded _
@@ -926,19 +925,19 @@ instance encodeSecurityGroupLimitExceeded :: Encode SecurityGroupLimitExceeded w
 
 -- | Constructs SecurityGroupLimitExceeded from required parameters
 newSecurityGroupLimitExceeded :: ErrorCode -> SecurityGroupLimitExceeded
-newSecurityGroupLimitExceeded _ErrorCode = SecurityGroupLimitExceeded { "ErrorCode": _ErrorCode, "Message": (NullOrUndefined Nothing) }
+newSecurityGroupLimitExceeded _ErrorCode = SecurityGroupLimitExceeded { "ErrorCode": _ErrorCode, "Message": Nothing }
 
 -- | Constructs SecurityGroupLimitExceeded's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newSecurityGroupLimitExceeded' :: ErrorCode -> ( { "ErrorCode" :: (ErrorCode) , "Message" :: NullOrUndefined (ErrorMessage) } -> {"ErrorCode" :: (ErrorCode) , "Message" :: NullOrUndefined (ErrorMessage) } ) -> SecurityGroupLimitExceeded
-newSecurityGroupLimitExceeded' _ErrorCode customize = (SecurityGroupLimitExceeded <<< customize) { "ErrorCode": _ErrorCode, "Message": (NullOrUndefined Nothing) }
+newSecurityGroupLimitExceeded' :: ErrorCode -> ( { "ErrorCode" :: (ErrorCode) , "Message" :: Maybe (ErrorMessage) } -> {"ErrorCode" :: (ErrorCode) , "Message" :: Maybe (ErrorMessage) } ) -> SecurityGroupLimitExceeded
+newSecurityGroupLimitExceeded' _ErrorCode customize = (SecurityGroupLimitExceeded <<< customize) { "ErrorCode": _ErrorCode, "Message": Nothing }
 
 
 
 -- | <p>Returned if one of the specified security groups does not exist in the subnet's VPC.</p>
 newtype SecurityGroupNotFound = SecurityGroupNotFound 
   { "ErrorCode" :: (ErrorCode)
-  , "Message" :: NullOrUndefined (ErrorMessage)
+  , "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeSecurityGroupNotFound :: Newtype SecurityGroupNotFound _
 derive instance repGenericSecurityGroupNotFound :: Generic SecurityGroupNotFound _
@@ -948,12 +947,12 @@ instance encodeSecurityGroupNotFound :: Encode SecurityGroupNotFound where encod
 
 -- | Constructs SecurityGroupNotFound from required parameters
 newSecurityGroupNotFound :: ErrorCode -> SecurityGroupNotFound
-newSecurityGroupNotFound _ErrorCode = SecurityGroupNotFound { "ErrorCode": _ErrorCode, "Message": (NullOrUndefined Nothing) }
+newSecurityGroupNotFound _ErrorCode = SecurityGroupNotFound { "ErrorCode": _ErrorCode, "Message": Nothing }
 
 -- | Constructs SecurityGroupNotFound's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newSecurityGroupNotFound' :: ErrorCode -> ( { "ErrorCode" :: (ErrorCode) , "Message" :: NullOrUndefined (ErrorMessage) } -> {"ErrorCode" :: (ErrorCode) , "Message" :: NullOrUndefined (ErrorMessage) } ) -> SecurityGroupNotFound
-newSecurityGroupNotFound' _ErrorCode customize = (SecurityGroupNotFound <<< customize) { "ErrorCode": _ErrorCode, "Message": (NullOrUndefined Nothing) }
+newSecurityGroupNotFound' :: ErrorCode -> ( { "ErrorCode" :: (ErrorCode) , "Message" :: Maybe (ErrorMessage) } -> {"ErrorCode" :: (ErrorCode) , "Message" :: Maybe (ErrorMessage) } ) -> SecurityGroupNotFound
+newSecurityGroupNotFound' _ErrorCode customize = (SecurityGroupNotFound <<< customize) { "ErrorCode": _ErrorCode, "Message": Nothing }
 
 
 
@@ -978,7 +977,7 @@ instance encodeSubnetId :: Encode SubnetId where encode = genericEncode options
 -- | <p>Returned if there is no subnet with ID <code>SubnetId</code> provided in the request.</p>
 newtype SubnetNotFound = SubnetNotFound 
   { "ErrorCode" :: (ErrorCode)
-  , "Message" :: NullOrUndefined (ErrorMessage)
+  , "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeSubnetNotFound :: Newtype SubnetNotFound _
 derive instance repGenericSubnetNotFound :: Generic SubnetNotFound _
@@ -988,12 +987,12 @@ instance encodeSubnetNotFound :: Encode SubnetNotFound where encode = genericEnc
 
 -- | Constructs SubnetNotFound from required parameters
 newSubnetNotFound :: ErrorCode -> SubnetNotFound
-newSubnetNotFound _ErrorCode = SubnetNotFound { "ErrorCode": _ErrorCode, "Message": (NullOrUndefined Nothing) }
+newSubnetNotFound _ErrorCode = SubnetNotFound { "ErrorCode": _ErrorCode, "Message": Nothing }
 
 -- | Constructs SubnetNotFound's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newSubnetNotFound' :: ErrorCode -> ( { "ErrorCode" :: (ErrorCode) , "Message" :: NullOrUndefined (ErrorMessage) } -> {"ErrorCode" :: (ErrorCode) , "Message" :: NullOrUndefined (ErrorMessage) } ) -> SubnetNotFound
-newSubnetNotFound' _ErrorCode customize = (SubnetNotFound <<< customize) { "ErrorCode": _ErrorCode, "Message": (NullOrUndefined Nothing) }
+newSubnetNotFound' :: ErrorCode -> ( { "ErrorCode" :: (ErrorCode) , "Message" :: Maybe (ErrorMessage) } -> {"ErrorCode" :: (ErrorCode) , "Message" :: Maybe (ErrorMessage) } ) -> SubnetNotFound
+newSubnetNotFound' _ErrorCode customize = (SubnetNotFound <<< customize) { "ErrorCode": _ErrorCode, "Message": Nothing }
 
 
 
@@ -1058,7 +1057,7 @@ instance encodeTags :: Encode Tags where encode = genericEncode options
 -- | <p/>
 newtype UnsupportedAvailabilityZone = UnsupportedAvailabilityZone 
   { "ErrorCode" :: (ErrorCode)
-  , "Message" :: NullOrUndefined (ErrorMessage)
+  , "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeUnsupportedAvailabilityZone :: Newtype UnsupportedAvailabilityZone _
 derive instance repGenericUnsupportedAvailabilityZone :: Generic UnsupportedAvailabilityZone _
@@ -1068,10 +1067,10 @@ instance encodeUnsupportedAvailabilityZone :: Encode UnsupportedAvailabilityZone
 
 -- | Constructs UnsupportedAvailabilityZone from required parameters
 newUnsupportedAvailabilityZone :: ErrorCode -> UnsupportedAvailabilityZone
-newUnsupportedAvailabilityZone _ErrorCode = UnsupportedAvailabilityZone { "ErrorCode": _ErrorCode, "Message": (NullOrUndefined Nothing) }
+newUnsupportedAvailabilityZone _ErrorCode = UnsupportedAvailabilityZone { "ErrorCode": _ErrorCode, "Message": Nothing }
 
 -- | Constructs UnsupportedAvailabilityZone's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUnsupportedAvailabilityZone' :: ErrorCode -> ( { "ErrorCode" :: (ErrorCode) , "Message" :: NullOrUndefined (ErrorMessage) } -> {"ErrorCode" :: (ErrorCode) , "Message" :: NullOrUndefined (ErrorMessage) } ) -> UnsupportedAvailabilityZone
-newUnsupportedAvailabilityZone' _ErrorCode customize = (UnsupportedAvailabilityZone <<< customize) { "ErrorCode": _ErrorCode, "Message": (NullOrUndefined Nothing) }
+newUnsupportedAvailabilityZone' :: ErrorCode -> ( { "ErrorCode" :: (ErrorCode) , "Message" :: Maybe (ErrorMessage) } -> {"ErrorCode" :: (ErrorCode) , "Message" :: Maybe (ErrorMessage) } ) -> UnsupportedAvailabilityZone
+newUnsupportedAvailabilityZone' _ErrorCode customize = (UnsupportedAvailabilityZone <<< customize) { "ErrorCode": _ErrorCode, "Message": Nothing }
 

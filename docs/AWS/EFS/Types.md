@@ -26,7 +26,7 @@ Encode AwsAccountId
 
 ``` purescript
 newtype BadRequest
-  = BadRequest { "ErrorCode" :: ErrorCode, "Message" :: NullOrUndefined (ErrorMessage) }
+  = BadRequest { "ErrorCode" :: ErrorCode, "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>Returned if the request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
@@ -51,7 +51,7 @@ Constructs BadRequest from required parameters
 #### `newBadRequest'`
 
 ``` purescript
-newBadRequest' :: ErrorCode -> ({ "ErrorCode" :: ErrorCode, "Message" :: NullOrUndefined (ErrorMessage) } -> { "ErrorCode" :: ErrorCode, "Message" :: NullOrUndefined (ErrorMessage) }) -> BadRequest
+newBadRequest' :: ErrorCode -> ({ "ErrorCode" :: ErrorCode, "Message" :: Maybe (ErrorMessage) } -> { "ErrorCode" :: ErrorCode, "Message" :: Maybe (ErrorMessage) }) -> BadRequest
 ```
 
 Constructs BadRequest's fields from required parameters
@@ -60,7 +60,7 @@ Constructs BadRequest's fields from required parameters
 
 ``` purescript
 newtype CreateFileSystemRequest
-  = CreateFileSystemRequest { "CreationToken" :: CreationToken, "PerformanceMode" :: NullOrUndefined (PerformanceMode), "Encrypted" :: NullOrUndefined (Encrypted), "KmsKeyId" :: NullOrUndefined (KmsKeyId) }
+  = CreateFileSystemRequest { "CreationToken" :: CreationToken, "PerformanceMode" :: Maybe (PerformanceMode), "Encrypted" :: Maybe (Encrypted), "KmsKeyId" :: Maybe (KmsKeyId) }
 ```
 
 ##### Instances
@@ -83,7 +83,7 @@ Constructs CreateFileSystemRequest from required parameters
 #### `newCreateFileSystemRequest'`
 
 ``` purescript
-newCreateFileSystemRequest' :: CreationToken -> ({ "CreationToken" :: CreationToken, "PerformanceMode" :: NullOrUndefined (PerformanceMode), "Encrypted" :: NullOrUndefined (Encrypted), "KmsKeyId" :: NullOrUndefined (KmsKeyId) } -> { "CreationToken" :: CreationToken, "PerformanceMode" :: NullOrUndefined (PerformanceMode), "Encrypted" :: NullOrUndefined (Encrypted), "KmsKeyId" :: NullOrUndefined (KmsKeyId) }) -> CreateFileSystemRequest
+newCreateFileSystemRequest' :: CreationToken -> ({ "CreationToken" :: CreationToken, "PerformanceMode" :: Maybe (PerformanceMode), "Encrypted" :: Maybe (Encrypted), "KmsKeyId" :: Maybe (KmsKeyId) } -> { "CreationToken" :: CreationToken, "PerformanceMode" :: Maybe (PerformanceMode), "Encrypted" :: Maybe (Encrypted), "KmsKeyId" :: Maybe (KmsKeyId) }) -> CreateFileSystemRequest
 ```
 
 Constructs CreateFileSystemRequest's fields from required parameters
@@ -92,7 +92,7 @@ Constructs CreateFileSystemRequest's fields from required parameters
 
 ``` purescript
 newtype CreateMountTargetRequest
-  = CreateMountTargetRequest { "FileSystemId" :: FileSystemId, "SubnetId" :: SubnetId, "IpAddress" :: NullOrUndefined (IpAddress), "SecurityGroups" :: NullOrUndefined (SecurityGroups) }
+  = CreateMountTargetRequest { "FileSystemId" :: FileSystemId, "SubnetId" :: SubnetId, "IpAddress" :: Maybe (IpAddress), "SecurityGroups" :: Maybe (SecurityGroups) }
 ```
 
 <p/>
@@ -117,7 +117,7 @@ Constructs CreateMountTargetRequest from required parameters
 #### `newCreateMountTargetRequest'`
 
 ``` purescript
-newCreateMountTargetRequest' :: FileSystemId -> SubnetId -> ({ "FileSystemId" :: FileSystemId, "SubnetId" :: SubnetId, "IpAddress" :: NullOrUndefined (IpAddress), "SecurityGroups" :: NullOrUndefined (SecurityGroups) } -> { "FileSystemId" :: FileSystemId, "SubnetId" :: SubnetId, "IpAddress" :: NullOrUndefined (IpAddress), "SecurityGroups" :: NullOrUndefined (SecurityGroups) }) -> CreateMountTargetRequest
+newCreateMountTargetRequest' :: FileSystemId -> SubnetId -> ({ "FileSystemId" :: FileSystemId, "SubnetId" :: SubnetId, "IpAddress" :: Maybe (IpAddress), "SecurityGroups" :: Maybe (SecurityGroups) } -> { "FileSystemId" :: FileSystemId, "SubnetId" :: SubnetId, "IpAddress" :: Maybe (IpAddress), "SecurityGroups" :: Maybe (SecurityGroups) }) -> CreateMountTargetRequest
 ```
 
 Constructs CreateMountTargetRequest's fields from required parameters
@@ -278,7 +278,7 @@ Constructs DeleteTagsRequest's fields from required parameters
 
 ``` purescript
 newtype DependencyTimeout
-  = DependencyTimeout { "ErrorCode" :: ErrorCode, "Message" :: NullOrUndefined (ErrorMessage) }
+  = DependencyTimeout { "ErrorCode" :: ErrorCode, "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>The service timed out trying to fulfill the request, and the client should try the call again.</p>
@@ -303,7 +303,7 @@ Constructs DependencyTimeout from required parameters
 #### `newDependencyTimeout'`
 
 ``` purescript
-newDependencyTimeout' :: ErrorCode -> ({ "ErrorCode" :: ErrorCode, "Message" :: NullOrUndefined (ErrorMessage) } -> { "ErrorCode" :: ErrorCode, "Message" :: NullOrUndefined (ErrorMessage) }) -> DependencyTimeout
+newDependencyTimeout' :: ErrorCode -> ({ "ErrorCode" :: ErrorCode, "Message" :: Maybe (ErrorMessage) } -> { "ErrorCode" :: ErrorCode, "Message" :: Maybe (ErrorMessage) }) -> DependencyTimeout
 ```
 
 Constructs DependencyTimeout's fields from required parameters
@@ -312,7 +312,7 @@ Constructs DependencyTimeout's fields from required parameters
 
 ``` purescript
 newtype DescribeFileSystemsRequest
-  = DescribeFileSystemsRequest { "MaxItems" :: NullOrUndefined (MaxItems), "Marker" :: NullOrUndefined (Marker), "CreationToken" :: NullOrUndefined (CreationToken), "FileSystemId" :: NullOrUndefined (FileSystemId) }
+  = DescribeFileSystemsRequest { "MaxItems" :: Maybe (MaxItems), "Marker" :: Maybe (Marker), "CreationToken" :: Maybe (CreationToken), "FileSystemId" :: Maybe (FileSystemId) }
 ```
 
 <p/>
@@ -337,7 +337,7 @@ Constructs DescribeFileSystemsRequest from required parameters
 #### `newDescribeFileSystemsRequest'`
 
 ``` purescript
-newDescribeFileSystemsRequest' :: ({ "MaxItems" :: NullOrUndefined (MaxItems), "Marker" :: NullOrUndefined (Marker), "CreationToken" :: NullOrUndefined (CreationToken), "FileSystemId" :: NullOrUndefined (FileSystemId) } -> { "MaxItems" :: NullOrUndefined (MaxItems), "Marker" :: NullOrUndefined (Marker), "CreationToken" :: NullOrUndefined (CreationToken), "FileSystemId" :: NullOrUndefined (FileSystemId) }) -> DescribeFileSystemsRequest
+newDescribeFileSystemsRequest' :: ({ "MaxItems" :: Maybe (MaxItems), "Marker" :: Maybe (Marker), "CreationToken" :: Maybe (CreationToken), "FileSystemId" :: Maybe (FileSystemId) } -> { "MaxItems" :: Maybe (MaxItems), "Marker" :: Maybe (Marker), "CreationToken" :: Maybe (CreationToken), "FileSystemId" :: Maybe (FileSystemId) }) -> DescribeFileSystemsRequest
 ```
 
 Constructs DescribeFileSystemsRequest's fields from required parameters
@@ -346,7 +346,7 @@ Constructs DescribeFileSystemsRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeFileSystemsResponse
-  = DescribeFileSystemsResponse { "Marker" :: NullOrUndefined (Marker), "FileSystems" :: NullOrUndefined (FileSystemDescriptions), "NextMarker" :: NullOrUndefined (Marker) }
+  = DescribeFileSystemsResponse { "Marker" :: Maybe (Marker), "FileSystems" :: Maybe (FileSystemDescriptions), "NextMarker" :: Maybe (Marker) }
 ```
 
 ##### Instances
@@ -369,7 +369,7 @@ Constructs DescribeFileSystemsResponse from required parameters
 #### `newDescribeFileSystemsResponse'`
 
 ``` purescript
-newDescribeFileSystemsResponse' :: ({ "Marker" :: NullOrUndefined (Marker), "FileSystems" :: NullOrUndefined (FileSystemDescriptions), "NextMarker" :: NullOrUndefined (Marker) } -> { "Marker" :: NullOrUndefined (Marker), "FileSystems" :: NullOrUndefined (FileSystemDescriptions), "NextMarker" :: NullOrUndefined (Marker) }) -> DescribeFileSystemsResponse
+newDescribeFileSystemsResponse' :: ({ "Marker" :: Maybe (Marker), "FileSystems" :: Maybe (FileSystemDescriptions), "NextMarker" :: Maybe (Marker) } -> { "Marker" :: Maybe (Marker), "FileSystems" :: Maybe (FileSystemDescriptions), "NextMarker" :: Maybe (Marker) }) -> DescribeFileSystemsResponse
 ```
 
 Constructs DescribeFileSystemsResponse's fields from required parameters
@@ -444,7 +444,7 @@ Constructs DescribeMountTargetSecurityGroupsResponse's fields from required para
 
 ``` purescript
 newtype DescribeMountTargetsRequest
-  = DescribeMountTargetsRequest { "MaxItems" :: NullOrUndefined (MaxItems), "Marker" :: NullOrUndefined (Marker), "FileSystemId" :: NullOrUndefined (FileSystemId), "MountTargetId" :: NullOrUndefined (MountTargetId) }
+  = DescribeMountTargetsRequest { "MaxItems" :: Maybe (MaxItems), "Marker" :: Maybe (Marker), "FileSystemId" :: Maybe (FileSystemId), "MountTargetId" :: Maybe (MountTargetId) }
 ```
 
 <p/>
@@ -469,7 +469,7 @@ Constructs DescribeMountTargetsRequest from required parameters
 #### `newDescribeMountTargetsRequest'`
 
 ``` purescript
-newDescribeMountTargetsRequest' :: ({ "MaxItems" :: NullOrUndefined (MaxItems), "Marker" :: NullOrUndefined (Marker), "FileSystemId" :: NullOrUndefined (FileSystemId), "MountTargetId" :: NullOrUndefined (MountTargetId) } -> { "MaxItems" :: NullOrUndefined (MaxItems), "Marker" :: NullOrUndefined (Marker), "FileSystemId" :: NullOrUndefined (FileSystemId), "MountTargetId" :: NullOrUndefined (MountTargetId) }) -> DescribeMountTargetsRequest
+newDescribeMountTargetsRequest' :: ({ "MaxItems" :: Maybe (MaxItems), "Marker" :: Maybe (Marker), "FileSystemId" :: Maybe (FileSystemId), "MountTargetId" :: Maybe (MountTargetId) } -> { "MaxItems" :: Maybe (MaxItems), "Marker" :: Maybe (Marker), "FileSystemId" :: Maybe (FileSystemId), "MountTargetId" :: Maybe (MountTargetId) }) -> DescribeMountTargetsRequest
 ```
 
 Constructs DescribeMountTargetsRequest's fields from required parameters
@@ -478,7 +478,7 @@ Constructs DescribeMountTargetsRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeMountTargetsResponse
-  = DescribeMountTargetsResponse { "Marker" :: NullOrUndefined (Marker), "MountTargets" :: NullOrUndefined (MountTargetDescriptions), "NextMarker" :: NullOrUndefined (Marker) }
+  = DescribeMountTargetsResponse { "Marker" :: Maybe (Marker), "MountTargets" :: Maybe (MountTargetDescriptions), "NextMarker" :: Maybe (Marker) }
 ```
 
 <p/>
@@ -503,7 +503,7 @@ Constructs DescribeMountTargetsResponse from required parameters
 #### `newDescribeMountTargetsResponse'`
 
 ``` purescript
-newDescribeMountTargetsResponse' :: ({ "Marker" :: NullOrUndefined (Marker), "MountTargets" :: NullOrUndefined (MountTargetDescriptions), "NextMarker" :: NullOrUndefined (Marker) } -> { "Marker" :: NullOrUndefined (Marker), "MountTargets" :: NullOrUndefined (MountTargetDescriptions), "NextMarker" :: NullOrUndefined (Marker) }) -> DescribeMountTargetsResponse
+newDescribeMountTargetsResponse' :: ({ "Marker" :: Maybe (Marker), "MountTargets" :: Maybe (MountTargetDescriptions), "NextMarker" :: Maybe (Marker) } -> { "Marker" :: Maybe (Marker), "MountTargets" :: Maybe (MountTargetDescriptions), "NextMarker" :: Maybe (Marker) }) -> DescribeMountTargetsResponse
 ```
 
 Constructs DescribeMountTargetsResponse's fields from required parameters
@@ -512,7 +512,7 @@ Constructs DescribeMountTargetsResponse's fields from required parameters
 
 ``` purescript
 newtype DescribeTagsRequest
-  = DescribeTagsRequest { "MaxItems" :: NullOrUndefined (MaxItems), "Marker" :: NullOrUndefined (Marker), "FileSystemId" :: FileSystemId }
+  = DescribeTagsRequest { "MaxItems" :: Maybe (MaxItems), "Marker" :: Maybe (Marker), "FileSystemId" :: FileSystemId }
 ```
 
 <p/>
@@ -537,7 +537,7 @@ Constructs DescribeTagsRequest from required parameters
 #### `newDescribeTagsRequest'`
 
 ``` purescript
-newDescribeTagsRequest' :: FileSystemId -> ({ "MaxItems" :: NullOrUndefined (MaxItems), "Marker" :: NullOrUndefined (Marker), "FileSystemId" :: FileSystemId } -> { "MaxItems" :: NullOrUndefined (MaxItems), "Marker" :: NullOrUndefined (Marker), "FileSystemId" :: FileSystemId }) -> DescribeTagsRequest
+newDescribeTagsRequest' :: FileSystemId -> ({ "MaxItems" :: Maybe (MaxItems), "Marker" :: Maybe (Marker), "FileSystemId" :: FileSystemId } -> { "MaxItems" :: Maybe (MaxItems), "Marker" :: Maybe (Marker), "FileSystemId" :: FileSystemId }) -> DescribeTagsRequest
 ```
 
 Constructs DescribeTagsRequest's fields from required parameters
@@ -546,7 +546,7 @@ Constructs DescribeTagsRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeTagsResponse
-  = DescribeTagsResponse { "Marker" :: NullOrUndefined (Marker), "Tags" :: Tags, "NextMarker" :: NullOrUndefined (Marker) }
+  = DescribeTagsResponse { "Marker" :: Maybe (Marker), "Tags" :: Tags, "NextMarker" :: Maybe (Marker) }
 ```
 
 <p/>
@@ -571,7 +571,7 @@ Constructs DescribeTagsResponse from required parameters
 #### `newDescribeTagsResponse'`
 
 ``` purescript
-newDescribeTagsResponse' :: Tags -> ({ "Marker" :: NullOrUndefined (Marker), "Tags" :: Tags, "NextMarker" :: NullOrUndefined (Marker) } -> { "Marker" :: NullOrUndefined (Marker), "Tags" :: Tags, "NextMarker" :: NullOrUndefined (Marker) }) -> DescribeTagsResponse
+newDescribeTagsResponse' :: Tags -> ({ "Marker" :: Maybe (Marker), "Tags" :: Tags, "NextMarker" :: Maybe (Marker) } -> { "Marker" :: Maybe (Marker), "Tags" :: Tags, "NextMarker" :: Maybe (Marker) }) -> DescribeTagsResponse
 ```
 
 Constructs DescribeTagsResponse's fields from required parameters
@@ -628,7 +628,7 @@ Encode ErrorMessage
 
 ``` purescript
 newtype FileSystemAlreadyExists
-  = FileSystemAlreadyExists { "ErrorCode" :: ErrorCode, "Message" :: NullOrUndefined (ErrorMessage), "FileSystemId" :: FileSystemId }
+  = FileSystemAlreadyExists { "ErrorCode" :: ErrorCode, "Message" :: Maybe (ErrorMessage), "FileSystemId" :: FileSystemId }
 ```
 
 <p>Returned if the file system you are trying to create already exists, with the creation token you provided.</p>
@@ -653,7 +653,7 @@ Constructs FileSystemAlreadyExists from required parameters
 #### `newFileSystemAlreadyExists'`
 
 ``` purescript
-newFileSystemAlreadyExists' :: ErrorCode -> FileSystemId -> ({ "ErrorCode" :: ErrorCode, "Message" :: NullOrUndefined (ErrorMessage), "FileSystemId" :: FileSystemId } -> { "ErrorCode" :: ErrorCode, "Message" :: NullOrUndefined (ErrorMessage), "FileSystemId" :: FileSystemId }) -> FileSystemAlreadyExists
+newFileSystemAlreadyExists' :: ErrorCode -> FileSystemId -> ({ "ErrorCode" :: ErrorCode, "Message" :: Maybe (ErrorMessage), "FileSystemId" :: FileSystemId } -> { "ErrorCode" :: ErrorCode, "Message" :: Maybe (ErrorMessage), "FileSystemId" :: FileSystemId }) -> FileSystemAlreadyExists
 ```
 
 Constructs FileSystemAlreadyExists's fields from required parameters
@@ -662,7 +662,7 @@ Constructs FileSystemAlreadyExists's fields from required parameters
 
 ``` purescript
 newtype FileSystemDescription
-  = FileSystemDescription { "OwnerId" :: AwsAccountId, "CreationToken" :: CreationToken, "FileSystemId" :: FileSystemId, "CreationTime" :: Timestamp, "LifeCycleState" :: LifeCycleState, "Name" :: NullOrUndefined (TagValue), "NumberOfMountTargets" :: MountTargetCount, "SizeInBytes" :: FileSystemSize, "PerformanceMode" :: PerformanceMode, "Encrypted" :: NullOrUndefined (Encrypted), "KmsKeyId" :: NullOrUndefined (KmsKeyId) }
+  = FileSystemDescription { "OwnerId" :: AwsAccountId, "CreationToken" :: CreationToken, "FileSystemId" :: FileSystemId, "CreationTime" :: Timestamp, "LifeCycleState" :: LifeCycleState, "Name" :: Maybe (TagValue), "NumberOfMountTargets" :: MountTargetCount, "SizeInBytes" :: FileSystemSize, "PerformanceMode" :: PerformanceMode, "Encrypted" :: Maybe (Encrypted), "KmsKeyId" :: Maybe (KmsKeyId) }
 ```
 
 <p>Description of the file system.</p>
@@ -687,7 +687,7 @@ Constructs FileSystemDescription from required parameters
 #### `newFileSystemDescription'`
 
 ``` purescript
-newFileSystemDescription' :: Timestamp -> CreationToken -> FileSystemId -> LifeCycleState -> MountTargetCount -> AwsAccountId -> PerformanceMode -> FileSystemSize -> ({ "OwnerId" :: AwsAccountId, "CreationToken" :: CreationToken, "FileSystemId" :: FileSystemId, "CreationTime" :: Timestamp, "LifeCycleState" :: LifeCycleState, "Name" :: NullOrUndefined (TagValue), "NumberOfMountTargets" :: MountTargetCount, "SizeInBytes" :: FileSystemSize, "PerformanceMode" :: PerformanceMode, "Encrypted" :: NullOrUndefined (Encrypted), "KmsKeyId" :: NullOrUndefined (KmsKeyId) } -> { "OwnerId" :: AwsAccountId, "CreationToken" :: CreationToken, "FileSystemId" :: FileSystemId, "CreationTime" :: Timestamp, "LifeCycleState" :: LifeCycleState, "Name" :: NullOrUndefined (TagValue), "NumberOfMountTargets" :: MountTargetCount, "SizeInBytes" :: FileSystemSize, "PerformanceMode" :: PerformanceMode, "Encrypted" :: NullOrUndefined (Encrypted), "KmsKeyId" :: NullOrUndefined (KmsKeyId) }) -> FileSystemDescription
+newFileSystemDescription' :: Timestamp -> CreationToken -> FileSystemId -> LifeCycleState -> MountTargetCount -> AwsAccountId -> PerformanceMode -> FileSystemSize -> ({ "OwnerId" :: AwsAccountId, "CreationToken" :: CreationToken, "FileSystemId" :: FileSystemId, "CreationTime" :: Timestamp, "LifeCycleState" :: LifeCycleState, "Name" :: Maybe (TagValue), "NumberOfMountTargets" :: MountTargetCount, "SizeInBytes" :: FileSystemSize, "PerformanceMode" :: PerformanceMode, "Encrypted" :: Maybe (Encrypted), "KmsKeyId" :: Maybe (KmsKeyId) } -> { "OwnerId" :: AwsAccountId, "CreationToken" :: CreationToken, "FileSystemId" :: FileSystemId, "CreationTime" :: Timestamp, "LifeCycleState" :: LifeCycleState, "Name" :: Maybe (TagValue), "NumberOfMountTargets" :: MountTargetCount, "SizeInBytes" :: FileSystemSize, "PerformanceMode" :: PerformanceMode, "Encrypted" :: Maybe (Encrypted), "KmsKeyId" :: Maybe (KmsKeyId) }) -> FileSystemDescription
 ```
 
 Constructs FileSystemDescription's fields from required parameters
@@ -728,7 +728,7 @@ Encode FileSystemId
 
 ``` purescript
 newtype FileSystemInUse
-  = FileSystemInUse { "ErrorCode" :: ErrorCode, "Message" :: NullOrUndefined (ErrorMessage) }
+  = FileSystemInUse { "ErrorCode" :: ErrorCode, "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>Returned if a file system has mount targets.</p>
@@ -753,7 +753,7 @@ Constructs FileSystemInUse from required parameters
 #### `newFileSystemInUse'`
 
 ``` purescript
-newFileSystemInUse' :: ErrorCode -> ({ "ErrorCode" :: ErrorCode, "Message" :: NullOrUndefined (ErrorMessage) } -> { "ErrorCode" :: ErrorCode, "Message" :: NullOrUndefined (ErrorMessage) }) -> FileSystemInUse
+newFileSystemInUse' :: ErrorCode -> ({ "ErrorCode" :: ErrorCode, "Message" :: Maybe (ErrorMessage) } -> { "ErrorCode" :: ErrorCode, "Message" :: Maybe (ErrorMessage) }) -> FileSystemInUse
 ```
 
 Constructs FileSystemInUse's fields from required parameters
@@ -762,7 +762,7 @@ Constructs FileSystemInUse's fields from required parameters
 
 ``` purescript
 newtype FileSystemLimitExceeded
-  = FileSystemLimitExceeded { "ErrorCode" :: ErrorCode, "Message" :: NullOrUndefined (ErrorMessage) }
+  = FileSystemLimitExceeded { "ErrorCode" :: ErrorCode, "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>Returned if the AWS account has already created maximum number of file systems allowed per account.</p>
@@ -787,7 +787,7 @@ Constructs FileSystemLimitExceeded from required parameters
 #### `newFileSystemLimitExceeded'`
 
 ``` purescript
-newFileSystemLimitExceeded' :: ErrorCode -> ({ "ErrorCode" :: ErrorCode, "Message" :: NullOrUndefined (ErrorMessage) } -> { "ErrorCode" :: ErrorCode, "Message" :: NullOrUndefined (ErrorMessage) }) -> FileSystemLimitExceeded
+newFileSystemLimitExceeded' :: ErrorCode -> ({ "ErrorCode" :: ErrorCode, "Message" :: Maybe (ErrorMessage) } -> { "ErrorCode" :: ErrorCode, "Message" :: Maybe (ErrorMessage) }) -> FileSystemLimitExceeded
 ```
 
 Constructs FileSystemLimitExceeded's fields from required parameters
@@ -796,7 +796,7 @@ Constructs FileSystemLimitExceeded's fields from required parameters
 
 ``` purescript
 newtype FileSystemNotFound
-  = FileSystemNotFound { "ErrorCode" :: ErrorCode, "Message" :: NullOrUndefined (ErrorMessage) }
+  = FileSystemNotFound { "ErrorCode" :: ErrorCode, "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>Returned if the specified <code>FileSystemId</code> does not exist in the requester's AWS account.</p>
@@ -821,7 +821,7 @@ Constructs FileSystemNotFound from required parameters
 #### `newFileSystemNotFound'`
 
 ``` purescript
-newFileSystemNotFound' :: ErrorCode -> ({ "ErrorCode" :: ErrorCode, "Message" :: NullOrUndefined (ErrorMessage) } -> { "ErrorCode" :: ErrorCode, "Message" :: NullOrUndefined (ErrorMessage) }) -> FileSystemNotFound
+newFileSystemNotFound' :: ErrorCode -> ({ "ErrorCode" :: ErrorCode, "Message" :: Maybe (ErrorMessage) } -> { "ErrorCode" :: ErrorCode, "Message" :: Maybe (ErrorMessage) }) -> FileSystemNotFound
 ```
 
 Constructs FileSystemNotFound's fields from required parameters
@@ -830,7 +830,7 @@ Constructs FileSystemNotFound's fields from required parameters
 
 ``` purescript
 newtype FileSystemSize
-  = FileSystemSize { "Value" :: FileSystemSizeValue, "Timestamp" :: NullOrUndefined (Timestamp) }
+  = FileSystemSize { "Value" :: FileSystemSizeValue, "Timestamp" :: Maybe (Timestamp) }
 ```
 
 <p>Latest known metered size (in bytes) of data stored in the file system, in its <code>Value</code> field, and the time at which that size was determined in its <code>Timestamp</code> field. Note that the value does not represent the size of a consistent snapshot of the file system, but it is eventually consistent when there are no writes to the file system. That is, the value will represent the actual size only if the file system is not modified for a period longer than a couple of hours. Otherwise, the value is not necessarily the exact size the file system was at any instant in time.</p>
@@ -855,7 +855,7 @@ Constructs FileSystemSize from required parameters
 #### `newFileSystemSize'`
 
 ``` purescript
-newFileSystemSize' :: FileSystemSizeValue -> ({ "Value" :: FileSystemSizeValue, "Timestamp" :: NullOrUndefined (Timestamp) } -> { "Value" :: FileSystemSizeValue, "Timestamp" :: NullOrUndefined (Timestamp) }) -> FileSystemSize
+newFileSystemSize' :: FileSystemSizeValue -> ({ "Value" :: FileSystemSizeValue, "Timestamp" :: Maybe (Timestamp) } -> { "Value" :: FileSystemSizeValue, "Timestamp" :: Maybe (Timestamp) }) -> FileSystemSize
 ```
 
 Constructs FileSystemSize's fields from required parameters
@@ -880,7 +880,7 @@ Encode FileSystemSizeValue
 
 ``` purescript
 newtype IncorrectFileSystemLifeCycleState
-  = IncorrectFileSystemLifeCycleState { "ErrorCode" :: ErrorCode, "Message" :: NullOrUndefined (ErrorMessage) }
+  = IncorrectFileSystemLifeCycleState { "ErrorCode" :: ErrorCode, "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>Returned if the file system's life cycle state is not "created".</p>
@@ -905,7 +905,7 @@ Constructs IncorrectFileSystemLifeCycleState from required parameters
 #### `newIncorrectFileSystemLifeCycleState'`
 
 ``` purescript
-newIncorrectFileSystemLifeCycleState' :: ErrorCode -> ({ "ErrorCode" :: ErrorCode, "Message" :: NullOrUndefined (ErrorMessage) } -> { "ErrorCode" :: ErrorCode, "Message" :: NullOrUndefined (ErrorMessage) }) -> IncorrectFileSystemLifeCycleState
+newIncorrectFileSystemLifeCycleState' :: ErrorCode -> ({ "ErrorCode" :: ErrorCode, "Message" :: Maybe (ErrorMessage) } -> { "ErrorCode" :: ErrorCode, "Message" :: Maybe (ErrorMessage) }) -> IncorrectFileSystemLifeCycleState
 ```
 
 Constructs IncorrectFileSystemLifeCycleState's fields from required parameters
@@ -914,7 +914,7 @@ Constructs IncorrectFileSystemLifeCycleState's fields from required parameters
 
 ``` purescript
 newtype IncorrectMountTargetState
-  = IncorrectMountTargetState { "ErrorCode" :: ErrorCode, "Message" :: NullOrUndefined (ErrorMessage) }
+  = IncorrectMountTargetState { "ErrorCode" :: ErrorCode, "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>Returned if the mount target is not in the correct state for the operation.</p>
@@ -939,7 +939,7 @@ Constructs IncorrectMountTargetState from required parameters
 #### `newIncorrectMountTargetState'`
 
 ``` purescript
-newIncorrectMountTargetState' :: ErrorCode -> ({ "ErrorCode" :: ErrorCode, "Message" :: NullOrUndefined (ErrorMessage) } -> { "ErrorCode" :: ErrorCode, "Message" :: NullOrUndefined (ErrorMessage) }) -> IncorrectMountTargetState
+newIncorrectMountTargetState' :: ErrorCode -> ({ "ErrorCode" :: ErrorCode, "Message" :: Maybe (ErrorMessage) } -> { "ErrorCode" :: ErrorCode, "Message" :: Maybe (ErrorMessage) }) -> IncorrectMountTargetState
 ```
 
 Constructs IncorrectMountTargetState's fields from required parameters
@@ -948,7 +948,7 @@ Constructs IncorrectMountTargetState's fields from required parameters
 
 ``` purescript
 newtype InternalServerError
-  = InternalServerError { "ErrorCode" :: ErrorCode, "Message" :: NullOrUndefined (ErrorMessage) }
+  = InternalServerError { "ErrorCode" :: ErrorCode, "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>Returned if an error occurred on the server side.</p>
@@ -973,7 +973,7 @@ Constructs InternalServerError from required parameters
 #### `newInternalServerError'`
 
 ``` purescript
-newInternalServerError' :: ErrorCode -> ({ "ErrorCode" :: ErrorCode, "Message" :: NullOrUndefined (ErrorMessage) } -> { "ErrorCode" :: ErrorCode, "Message" :: NullOrUndefined (ErrorMessage) }) -> InternalServerError
+newInternalServerError' :: ErrorCode -> ({ "ErrorCode" :: ErrorCode, "Message" :: Maybe (ErrorMessage) } -> { "ErrorCode" :: ErrorCode, "Message" :: Maybe (ErrorMessage) }) -> InternalServerError
 ```
 
 Constructs InternalServerError's fields from required parameters
@@ -998,7 +998,7 @@ Encode IpAddress
 
 ``` purescript
 newtype IpAddressInUse
-  = IpAddressInUse { "ErrorCode" :: ErrorCode, "Message" :: NullOrUndefined (ErrorMessage) }
+  = IpAddressInUse { "ErrorCode" :: ErrorCode, "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>Returned if the request specified an <code>IpAddress</code> that is already in use in the subnet.</p>
@@ -1023,7 +1023,7 @@ Constructs IpAddressInUse from required parameters
 #### `newIpAddressInUse'`
 
 ``` purescript
-newIpAddressInUse' :: ErrorCode -> ({ "ErrorCode" :: ErrorCode, "Message" :: NullOrUndefined (ErrorMessage) } -> { "ErrorCode" :: ErrorCode, "Message" :: NullOrUndefined (ErrorMessage) }) -> IpAddressInUse
+newIpAddressInUse' :: ErrorCode -> ({ "ErrorCode" :: ErrorCode, "Message" :: Maybe (ErrorMessage) } -> { "ErrorCode" :: ErrorCode, "Message" :: Maybe (ErrorMessage) }) -> IpAddressInUse
 ```
 
 Constructs IpAddressInUse's fields from required parameters
@@ -1096,7 +1096,7 @@ Encode MaxItems
 
 ``` purescript
 newtype ModifyMountTargetSecurityGroupsRequest
-  = ModifyMountTargetSecurityGroupsRequest { "MountTargetId" :: MountTargetId, "SecurityGroups" :: NullOrUndefined (SecurityGroups) }
+  = ModifyMountTargetSecurityGroupsRequest { "MountTargetId" :: MountTargetId, "SecurityGroups" :: Maybe (SecurityGroups) }
 ```
 
 <p/>
@@ -1121,7 +1121,7 @@ Constructs ModifyMountTargetSecurityGroupsRequest from required parameters
 #### `newModifyMountTargetSecurityGroupsRequest'`
 
 ``` purescript
-newModifyMountTargetSecurityGroupsRequest' :: MountTargetId -> ({ "MountTargetId" :: MountTargetId, "SecurityGroups" :: NullOrUndefined (SecurityGroups) } -> { "MountTargetId" :: MountTargetId, "SecurityGroups" :: NullOrUndefined (SecurityGroups) }) -> ModifyMountTargetSecurityGroupsRequest
+newModifyMountTargetSecurityGroupsRequest' :: MountTargetId -> ({ "MountTargetId" :: MountTargetId, "SecurityGroups" :: Maybe (SecurityGroups) } -> { "MountTargetId" :: MountTargetId, "SecurityGroups" :: Maybe (SecurityGroups) }) -> ModifyMountTargetSecurityGroupsRequest
 ```
 
 Constructs ModifyMountTargetSecurityGroupsRequest's fields from required parameters
@@ -1130,7 +1130,7 @@ Constructs ModifyMountTargetSecurityGroupsRequest's fields from required paramet
 
 ``` purescript
 newtype MountTargetConflict
-  = MountTargetConflict { "ErrorCode" :: ErrorCode, "Message" :: NullOrUndefined (ErrorMessage) }
+  = MountTargetConflict { "ErrorCode" :: ErrorCode, "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>Returned if the mount target would violate one of the specified restrictions based on the file system's existing mount targets.</p>
@@ -1155,7 +1155,7 @@ Constructs MountTargetConflict from required parameters
 #### `newMountTargetConflict'`
 
 ``` purescript
-newMountTargetConflict' :: ErrorCode -> ({ "ErrorCode" :: ErrorCode, "Message" :: NullOrUndefined (ErrorMessage) } -> { "ErrorCode" :: ErrorCode, "Message" :: NullOrUndefined (ErrorMessage) }) -> MountTargetConflict
+newMountTargetConflict' :: ErrorCode -> ({ "ErrorCode" :: ErrorCode, "Message" :: Maybe (ErrorMessage) } -> { "ErrorCode" :: ErrorCode, "Message" :: Maybe (ErrorMessage) }) -> MountTargetConflict
 ```
 
 Constructs MountTargetConflict's fields from required parameters
@@ -1180,7 +1180,7 @@ Encode MountTargetCount
 
 ``` purescript
 newtype MountTargetDescription
-  = MountTargetDescription { "OwnerId" :: NullOrUndefined (AwsAccountId), "MountTargetId" :: MountTargetId, "FileSystemId" :: FileSystemId, "SubnetId" :: SubnetId, "LifeCycleState" :: LifeCycleState, "IpAddress" :: NullOrUndefined (IpAddress), "NetworkInterfaceId" :: NullOrUndefined (NetworkInterfaceId) }
+  = MountTargetDescription { "OwnerId" :: Maybe (AwsAccountId), "MountTargetId" :: MountTargetId, "FileSystemId" :: FileSystemId, "SubnetId" :: SubnetId, "LifeCycleState" :: LifeCycleState, "IpAddress" :: Maybe (IpAddress), "NetworkInterfaceId" :: Maybe (NetworkInterfaceId) }
 ```
 
 <p>Provides a description of a mount target.</p>
@@ -1205,7 +1205,7 @@ Constructs MountTargetDescription from required parameters
 #### `newMountTargetDescription'`
 
 ``` purescript
-newMountTargetDescription' :: FileSystemId -> LifeCycleState -> MountTargetId -> SubnetId -> ({ "OwnerId" :: NullOrUndefined (AwsAccountId), "MountTargetId" :: MountTargetId, "FileSystemId" :: FileSystemId, "SubnetId" :: SubnetId, "LifeCycleState" :: LifeCycleState, "IpAddress" :: NullOrUndefined (IpAddress), "NetworkInterfaceId" :: NullOrUndefined (NetworkInterfaceId) } -> { "OwnerId" :: NullOrUndefined (AwsAccountId), "MountTargetId" :: MountTargetId, "FileSystemId" :: FileSystemId, "SubnetId" :: SubnetId, "LifeCycleState" :: LifeCycleState, "IpAddress" :: NullOrUndefined (IpAddress), "NetworkInterfaceId" :: NullOrUndefined (NetworkInterfaceId) }) -> MountTargetDescription
+newMountTargetDescription' :: FileSystemId -> LifeCycleState -> MountTargetId -> SubnetId -> ({ "OwnerId" :: Maybe (AwsAccountId), "MountTargetId" :: MountTargetId, "FileSystemId" :: FileSystemId, "SubnetId" :: SubnetId, "LifeCycleState" :: LifeCycleState, "IpAddress" :: Maybe (IpAddress), "NetworkInterfaceId" :: Maybe (NetworkInterfaceId) } -> { "OwnerId" :: Maybe (AwsAccountId), "MountTargetId" :: MountTargetId, "FileSystemId" :: FileSystemId, "SubnetId" :: SubnetId, "LifeCycleState" :: LifeCycleState, "IpAddress" :: Maybe (IpAddress), "NetworkInterfaceId" :: Maybe (NetworkInterfaceId) }) -> MountTargetDescription
 ```
 
 Constructs MountTargetDescription's fields from required parameters
@@ -1246,7 +1246,7 @@ Encode MountTargetId
 
 ``` purescript
 newtype MountTargetNotFound
-  = MountTargetNotFound { "ErrorCode" :: ErrorCode, "Message" :: NullOrUndefined (ErrorMessage) }
+  = MountTargetNotFound { "ErrorCode" :: ErrorCode, "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>Returned if there is no mount target with the specified ID found in the caller's account.</p>
@@ -1271,7 +1271,7 @@ Constructs MountTargetNotFound from required parameters
 #### `newMountTargetNotFound'`
 
 ``` purescript
-newMountTargetNotFound' :: ErrorCode -> ({ "ErrorCode" :: ErrorCode, "Message" :: NullOrUndefined (ErrorMessage) } -> { "ErrorCode" :: ErrorCode, "Message" :: NullOrUndefined (ErrorMessage) }) -> MountTargetNotFound
+newMountTargetNotFound' :: ErrorCode -> ({ "ErrorCode" :: ErrorCode, "Message" :: Maybe (ErrorMessage) } -> { "ErrorCode" :: ErrorCode, "Message" :: Maybe (ErrorMessage) }) -> MountTargetNotFound
 ```
 
 Constructs MountTargetNotFound's fields from required parameters
@@ -1296,7 +1296,7 @@ Encode NetworkInterfaceId
 
 ``` purescript
 newtype NetworkInterfaceLimitExceeded
-  = NetworkInterfaceLimitExceeded { "ErrorCode" :: ErrorCode, "Message" :: NullOrUndefined (ErrorMessage) }
+  = NetworkInterfaceLimitExceeded { "ErrorCode" :: ErrorCode, "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p> The calling account has reached the ENI limit for the specific AWS region. Client should try to delete some ENIs or get its account limit raised. For more information, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Appendix_Limits.html">Amazon VPC Limits</a> in the Amazon Virtual Private Cloud User Guide (see the Network interfaces per VPC entry in the table). </p>
@@ -1321,7 +1321,7 @@ Constructs NetworkInterfaceLimitExceeded from required parameters
 #### `newNetworkInterfaceLimitExceeded'`
 
 ``` purescript
-newNetworkInterfaceLimitExceeded' :: ErrorCode -> ({ "ErrorCode" :: ErrorCode, "Message" :: NullOrUndefined (ErrorMessage) } -> { "ErrorCode" :: ErrorCode, "Message" :: NullOrUndefined (ErrorMessage) }) -> NetworkInterfaceLimitExceeded
+newNetworkInterfaceLimitExceeded' :: ErrorCode -> ({ "ErrorCode" :: ErrorCode, "Message" :: Maybe (ErrorMessage) } -> { "ErrorCode" :: ErrorCode, "Message" :: Maybe (ErrorMessage) }) -> NetworkInterfaceLimitExceeded
 ```
 
 Constructs NetworkInterfaceLimitExceeded's fields from required parameters
@@ -1330,7 +1330,7 @@ Constructs NetworkInterfaceLimitExceeded's fields from required parameters
 
 ``` purescript
 newtype NoFreeAddressesInSubnet
-  = NoFreeAddressesInSubnet { "ErrorCode" :: ErrorCode, "Message" :: NullOrUndefined (ErrorMessage) }
+  = NoFreeAddressesInSubnet { "ErrorCode" :: ErrorCode, "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>Returned if <code>IpAddress</code> was not specified in the request and there are no free IP addresses in the subnet.</p>
@@ -1355,7 +1355,7 @@ Constructs NoFreeAddressesInSubnet from required parameters
 #### `newNoFreeAddressesInSubnet'`
 
 ``` purescript
-newNoFreeAddressesInSubnet' :: ErrorCode -> ({ "ErrorCode" :: ErrorCode, "Message" :: NullOrUndefined (ErrorMessage) } -> { "ErrorCode" :: ErrorCode, "Message" :: NullOrUndefined (ErrorMessage) }) -> NoFreeAddressesInSubnet
+newNoFreeAddressesInSubnet' :: ErrorCode -> ({ "ErrorCode" :: ErrorCode, "Message" :: Maybe (ErrorMessage) } -> { "ErrorCode" :: ErrorCode, "Message" :: Maybe (ErrorMessage) }) -> NoFreeAddressesInSubnet
 ```
 
 Constructs NoFreeAddressesInSubnet's fields from required parameters
@@ -1396,7 +1396,7 @@ Encode SecurityGroup
 
 ``` purescript
 newtype SecurityGroupLimitExceeded
-  = SecurityGroupLimitExceeded { "ErrorCode" :: ErrorCode, "Message" :: NullOrUndefined (ErrorMessage) }
+  = SecurityGroupLimitExceeded { "ErrorCode" :: ErrorCode, "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>Returned if the size of <code>SecurityGroups</code> specified in the request is greater than five.</p>
@@ -1421,7 +1421,7 @@ Constructs SecurityGroupLimitExceeded from required parameters
 #### `newSecurityGroupLimitExceeded'`
 
 ``` purescript
-newSecurityGroupLimitExceeded' :: ErrorCode -> ({ "ErrorCode" :: ErrorCode, "Message" :: NullOrUndefined (ErrorMessage) } -> { "ErrorCode" :: ErrorCode, "Message" :: NullOrUndefined (ErrorMessage) }) -> SecurityGroupLimitExceeded
+newSecurityGroupLimitExceeded' :: ErrorCode -> ({ "ErrorCode" :: ErrorCode, "Message" :: Maybe (ErrorMessage) } -> { "ErrorCode" :: ErrorCode, "Message" :: Maybe (ErrorMessage) }) -> SecurityGroupLimitExceeded
 ```
 
 Constructs SecurityGroupLimitExceeded's fields from required parameters
@@ -1430,7 +1430,7 @@ Constructs SecurityGroupLimitExceeded's fields from required parameters
 
 ``` purescript
 newtype SecurityGroupNotFound
-  = SecurityGroupNotFound { "ErrorCode" :: ErrorCode, "Message" :: NullOrUndefined (ErrorMessage) }
+  = SecurityGroupNotFound { "ErrorCode" :: ErrorCode, "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>Returned if one of the specified security groups does not exist in the subnet's VPC.</p>
@@ -1455,7 +1455,7 @@ Constructs SecurityGroupNotFound from required parameters
 #### `newSecurityGroupNotFound'`
 
 ``` purescript
-newSecurityGroupNotFound' :: ErrorCode -> ({ "ErrorCode" :: ErrorCode, "Message" :: NullOrUndefined (ErrorMessage) } -> { "ErrorCode" :: ErrorCode, "Message" :: NullOrUndefined (ErrorMessage) }) -> SecurityGroupNotFound
+newSecurityGroupNotFound' :: ErrorCode -> ({ "ErrorCode" :: ErrorCode, "Message" :: Maybe (ErrorMessage) } -> { "ErrorCode" :: ErrorCode, "Message" :: Maybe (ErrorMessage) }) -> SecurityGroupNotFound
 ```
 
 Constructs SecurityGroupNotFound's fields from required parameters
@@ -1496,7 +1496,7 @@ Encode SubnetId
 
 ``` purescript
 newtype SubnetNotFound
-  = SubnetNotFound { "ErrorCode" :: ErrorCode, "Message" :: NullOrUndefined (ErrorMessage) }
+  = SubnetNotFound { "ErrorCode" :: ErrorCode, "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>Returned if there is no subnet with ID <code>SubnetId</code> provided in the request.</p>
@@ -1521,7 +1521,7 @@ Constructs SubnetNotFound from required parameters
 #### `newSubnetNotFound'`
 
 ``` purescript
-newSubnetNotFound' :: ErrorCode -> ({ "ErrorCode" :: ErrorCode, "Message" :: NullOrUndefined (ErrorMessage) } -> { "ErrorCode" :: ErrorCode, "Message" :: NullOrUndefined (ErrorMessage) }) -> SubnetNotFound
+newSubnetNotFound' :: ErrorCode -> ({ "ErrorCode" :: ErrorCode, "Message" :: Maybe (ErrorMessage) } -> { "ErrorCode" :: ErrorCode, "Message" :: Maybe (ErrorMessage) }) -> SubnetNotFound
 ```
 
 Constructs SubnetNotFound's fields from required parameters
@@ -1628,7 +1628,7 @@ Encode Tags
 
 ``` purescript
 newtype UnsupportedAvailabilityZone
-  = UnsupportedAvailabilityZone { "ErrorCode" :: ErrorCode, "Message" :: NullOrUndefined (ErrorMessage) }
+  = UnsupportedAvailabilityZone { "ErrorCode" :: ErrorCode, "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p/>
@@ -1653,7 +1653,7 @@ Constructs UnsupportedAvailabilityZone from required parameters
 #### `newUnsupportedAvailabilityZone'`
 
 ``` purescript
-newUnsupportedAvailabilityZone' :: ErrorCode -> ({ "ErrorCode" :: ErrorCode, "Message" :: NullOrUndefined (ErrorMessage) } -> { "ErrorCode" :: ErrorCode, "Message" :: NullOrUndefined (ErrorMessage) }) -> UnsupportedAvailabilityZone
+newUnsupportedAvailabilityZone' :: ErrorCode -> ({ "ErrorCode" :: ErrorCode, "Message" :: Maybe (ErrorMessage) } -> { "ErrorCode" :: ErrorCode, "Message" :: Maybe (ErrorMessage) }) -> UnsupportedAvailabilityZone
 ```
 
 Constructs UnsupportedAvailabilityZone's fields from required parameters
